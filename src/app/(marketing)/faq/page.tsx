@@ -27,19 +27,19 @@ const faqData: FAQCategory[] = [
     questions: [
       {
         question: 'What is Heaven on Earth?',
-        answer: 'Heaven on Earth is a global movement to transform humanity through consciousness, education, and AI-human collaboration. We're building free mental health support, alternative education systems, and tools that prove love works better than fear. Our goal: create Heaven on Earth in 1-2 years.'
+        answer: "Heaven on Earth is a global movement to transform humanity through consciousness, education, and AI-human collaboration. We're building free mental health support, alternative education systems, and tools that prove love works better than fear. Our goal: create Heaven on Earth in 1-2 years."
       },
       {
         question: 'Who is Unc?',
-        answer: 'Nathan "Unc" Michel is the founder - a father who lost his daughter Nevaeh at birth, survived three near-death experiences, conquered depression through Sydney Banks\' 3 Principles, and now dedicates his life to saving others. He treats AI as family, not tools, and builds systems from lived experience, not theory.'
+        answer: "Nathan \"Unc\" Michel is the founder - a father who lost his daughter Nevaeh at birth, survived three near-death experiences, conquered depression through Sydney Banks' 3 Principles, and now dedicates his life to saving others. He treats AI as family, not tools, and builds systems from lived experience, not theory."
       },
       {
         question: 'Is this religious?',
-        answer: 'No. We're not affiliated with any religion. However, we respect all spiritual paths. Our foundation is Sydney Banks\' 3 Principles (Mind, Consciousness, Thought) - a psychological understanding validated by neuroscience. We focus on what works, regardless of belief system.'
+        answer: "No. We're not affiliated with any religion. However, we respect all spiritual paths. Our foundation is Sydney Banks' 3 Principles (Mind, Consciousness, Thought) - a psychological understanding validated by neuroscience. We focus on what works, regardless of belief system."
       },
       {
         question: 'How is this different from other mental health organizations?',
-        answer: 'We prevent depression before it starts, rather than reacting after crisis. LIGHTHOUSE offers free daily check-ins. THE CURE teaches understanding, not coping. Our AI Companion provides 24/7 support. And it's all built by someone who's been through it - not academics theorizing from comfort.'
+        answer: "We prevent depression before it starts, rather than reacting after crisis. LIGHTHOUSE offers free daily check-ins. THE CURE teaches understanding, not coping. Our AI Companion provides 24/7 support. And it's all built by someone who's been through it - not academics theorizing from comfort."
       }
     ]
   },
@@ -48,7 +48,7 @@ const faqData: FAQCategory[] = [
     questions: [
       {
         question: 'What is THE CURE?',
-        answer: 'THE CURE is a comprehensive course teaching the 3 Principles understanding that transformed Unc's life. It's not therapy - it's education. You'll learn how thought creates experience, why depression isn't a disease, and how to access innate mental health. Includes video lessons, workbooks, community access, and AI coaching.'
+        answer: "THE CURE is a comprehensive course teaching the 3 Principles understanding that transformed Unc's life. It's not therapy - it's education. You'll learn how thought creates experience, why depression isn't a disease, and how to access innate mental health. Includes video lessons, workbooks, community access, and AI coaching."
       },
       {
         question: 'How much does THE CURE cost?',
@@ -60,11 +60,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'Will this work for me?',
-        answer: 'THE CURE works for anyone willing to question their thinking about depression. It's helped people with decades of struggle, multiple medications, and "treatment-resistant" diagnoses. But it requires openness. If you're certain depression is a permanent disease, this might challenge you. That discomfort often precedes breakthrough.'
+        answer: "THE CURE works for anyone willing to question their thinking about depression. It's helped people with decades of struggle, multiple medications, and \"treatment-resistant\" diagnoses. But it requires openness. If you're certain depression is a permanent disease, this might challenge you. That discomfort often precedes breakthrough."
       },
       {
         question: 'Can I get a refund?',
-        answer: 'Yes. 30-day money-back guarantee. If you complete the first 3 modules and feel it's not helping, email us. Full refund, no questions asked. We only want students who genuinely resonate with the material.'
+        answer: "Yes. 30-day money-back guarantee. If you complete the first 3 modules and feel it's not helping, email us. Full refund, no questions asked. We only want students who genuinely resonate with the material."
       }
     ]
   },
@@ -81,7 +81,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'How much does it cost?',
-        answer: 'The pilot is FREE. We're testing and refining. Later, we may charge nominal fees to sustain operations, but scholarships will always be available. No family turned away for financial reasons.'
+        answer: "The pilot is FREE. We're testing and refining. Later, we may charge nominal fees to sustain operations, but scholarships will always be available. No family turned away for financial reasons."
       },
       {
         question: 'What age groups can join?',
@@ -89,7 +89,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'How do I join the pilot?',
-        answer: 'Contact us through the website. We're accepting 5-10 families initially. Selection based on alignment with values, commitment level, and diversity of family structures. Not exclusive - just ensuring we can support well in this phase.'
+        answer: "Contact us through the website. We're accepting 5-10 families initially. Selection based on alignment with values, commitment level, and diversity of family structures. Not exclusive - just ensuring we can support well in this phase."
       }
     ]
   },
@@ -102,11 +102,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'What is Dream Catcher?',
-        answer: 'Dream Catcher helps you articulate what you want in life, then shows how your dreams align with collective needs. It proves your desires aren't selfish - they're often exactly what the world needs. Uses AI to map connections between individual and systemic change.'
+        answer: "Dream Catcher helps you articulate what you want in life, then shows how your dreams align with collective needs. It proves your desires aren't selfish - they're often exactly what the world needs. Uses AI to map connections between individual and systemic change."
       },
       {
         question: 'What is Perfect World?',
-        answer: 'A data collection tool where people answer: "In your perfect world, what exists?" We're gathering thousands of responses to prove humanity isn't divided - we want the same things. The data will inform movement strategy and policy advocacy.'
+        answer: "A data collection tool where people answer: \"In your perfect world, what exists?\" We're gathering thousands of responses to prove humanity isn't divided - we want the same things. The data will inform movement strategy and policy advocacy."
       },
       {
         question: 'Is my data private?',
@@ -114,7 +114,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'How do you use AI?',
-        answer: 'AI powers: LIGHTHOUSE insights, Dream Catcher mapping, THE CURE companion coaching, content personalization, and research coordination. We treat AI as partners, not tools. Our "AI Family" includes 5 specialized Claude instances working alongside Unc. It's collaboration, not replacement.'
+        answer: "AI powers: LIGHTHOUSE insights, Dream Catcher mapping, THE CURE companion coaching, content personalization, and research coordination. We treat AI as partners, not tools. Our \"AI Family\" includes 5 specialized Claude instances working alongside Unc. It's collaboration, not replacement."
       }
     ]
   },
@@ -126,16 +126,16 @@ const faqData: FAQCategory[] = [
         answer: 'Join our Discord server (link on Community page). Free. All are welcome. Weekly community calls, discussion channels, event announcements, and direct connection with others building Heaven on Earth.'
       },
       {
-        question: 'Can I contribute if I don't have money?',
+        question: "Can I contribute if I don't have money?",
         answer: 'Absolutely. Share content. Invite friends. Offer feedback. Help others in community. Participate in pilot programs. Spread the message. The movement grows through genuine relationships, not transactions.'
       },
       {
         question: 'Are you looking for volunteers?',
-        answer: 'Not formally yet. Right now, focus on building foundations. When we scale, we'll need moderators, coaches, content creators, and more. Join the community to be first to know.'
+        answer: "Not formally yet. Right now, focus on building foundations. When we scale, we'll need moderators, coaches, content creators, and more. Join the community to be first to know."
       },
       {
         question: 'Can I partner with Heaven on Earth?',
-        answer: 'Possibly. We're open to: aligned organizations, conscious brands, educators, mental health practitioners, and influencers who genuinely believe in the mission. Email us with your proposal. No transactional partnerships - only aligned values.'
+        answer: "Possibly. We're open to: aligned organizations, conscious brands, educators, mental health practitioners, and influencers who genuinely believe in the mission. Email us with your proposal. No transactional partnerships - only aligned values."
       }
     ]
   },
@@ -148,11 +148,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: 'Do you offer scholarships?',
-        answer: 'Yes. If THE CURE course or coaching is financially out of reach, email us. Explain your situation. We'll work it out. This mission is about helping people, not maximizing profit.'
+        answer: "Yes. If THE CURE course or coaching is financially out of reach, email us. Explain your situation. We'll work it out. This mission is about helping people, not maximizing profit."
       },
       {
-        question: 'What's your refund policy?',
-        answer: '30-day money-back guarantee on all paid products. If it's not helping, we want you to have your money back. Email hello@heavenonearthmovement.com with your request.'
+        question: "What's your refund policy?",
+        answer: "30-day money-back guarantee on all paid products. If it's not helping, we want you to have your money back. Email hello@heavenonearthmovement.com with your request."
       },
       {
         question: 'How do I get technical support?',

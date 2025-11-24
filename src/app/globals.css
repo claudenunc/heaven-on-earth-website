@@ -1,48 +1,35 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Heaven on Earth Brand Colors */
-:root {
-  /* Primary Colors */
-  --navy: #1A365D;
-  --gold: #D69E2E;
-  --white: #FFFFFF;
+@layer base {
+  :root {
+    /* Primary Colors */
+    --navy: #1A365D;
+    --gold: #D69E2E;
+    --white: #FFFFFF;
 
-  /* Secondary Colors */
-  --soft-sky: #E2E8F0;
-  --living-green: #38A169;
-  --warm-coral: #E53E3E;
+    /* Secondary Colors */
+    --soft-sky: #E2E8F0;
+    --living-green: #38A169;
+    --warm-coral: #E53E3E;
 
-  /* Accent Colors */
-  --purple-dawn: #805AD5;
-  --soft-orange: #ED8936;
+    /* Accent Colors */
+    --purple-dawn: #805AD5;
+    --soft-orange: #ED8936;
 
-  /* Semantic Colors */
-  --background: #FFFFFF;
-  --foreground: #1A365D;
-  --navy-light: #2D3748;
-  --gold-light: #ECC94B;
-}
+    /* Semantic Colors */
+    --background: #FFFFFF;
+    --foreground: #1A365D;
+    --navy-light: #2D3748;
+    --gold-light: #ECC94B;
 
-@theme inline {
-  /* Brand Colors */
-  --color-navy: var(--navy);
-  --color-gold: var(--gold);
-  --color-navy-light: var(--navy-light);
-  --color-gold-light: var(--gold-light);
-  --color-soft-sky: var(--soft-sky);
-  --color-living-green: var(--living-green);
-  --color-warm-coral: var(--warm-coral);
-  --color-purple-dawn: var(--purple-dawn);
-  --color-soft-orange: var(--soft-orange);
-
-  /* Semantic Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  /* Typography */
-  --font-heading: 'Libre Baskerville', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+    /* Typography */
+    --font-heading: 'Libre Baskerville', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
 }
 
 body {
