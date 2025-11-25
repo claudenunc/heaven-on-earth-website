@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { ArrowRight, BookOpen, Brain, Users, Heart, Sparkles, Clock, CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
   title: 'Save the Children - Transform Education | Heaven on Earth',
@@ -10,345 +11,281 @@ export default function EducationPage() {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="relative py-20 lg:py-32 bg-navy text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-32 lg:py-40 overflow-hidden">
+        <div className="absolute inset-0 hero-gradient" />
+        <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-20" />
+
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-plasma/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyber/10 rounded-full blur-3xl animate-pulse delay-1000" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading text-4xl md:text-6xl mb-6">
+            <div className="cyber-badge mb-6 inline-flex">
+              <BookOpen className="w-3 h-3 mr-1" />
               Save the Children
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-gradient">Transform Education</span>
+              <br />
+              <span className="text-ghost">from the Ground Up</span>
             </h1>
-            <p className="text-2xl text-soft-sky mb-4">
-              Transform Education from the Ground Up
-            </p>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-ghost-muted mb-4">
               Traditional education prepares children for jobs. We prepare them for LIFE.
             </p>
+            <p className="text-lg text-ghost-dim mb-8 max-w-2xl mx-auto">
+              Consciousness-based curriculum for ages 5-18. Based on the Three Principles and Four Agreements.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-navy hover:bg-gold/90 font-bold" asChild>
-                <a href="#apply">Apply for Pilot Program</a>
+              <Button size="lg" variant="secondary" asChild className="group">
+                <a href="#apply">
+                  Apply for Pilot Program
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy" asChild>
+              <Button size="lg" variant="outline" asChild>
                 <a href="#curriculum">View Curriculum</a>
               </Button>
             </div>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyber/50 to-transparent" />
       </section>
 
       {/* The Problem */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-void to-abyss" />
+
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
-              Current Education Is Broken
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              <span className="text-danger">Current Education Is Broken</span>
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="border-t-4 border-t-warm-coral">
+              <Card className="border-t-4 border-t-danger">
                 <CardContent className="pt-8 space-y-4">
-                  <h3 className="font-heading text-xl text-navy mb-4">What Schools Teach</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✗ Memorize dates and formulas</li>
-                    <li>✗ Compete for grades</li>
-                    <li>✗ Sit still and be quiet</li>
-                    <li>✗ One right answer</li>
-                    <li>✗ Pass standardized tests</li>
-                    <li>✗ Prepare for a job</li>
+                  <h3 className="text-xl font-bold text-ghost mb-4">What Schools Teach</h3>
+                  <ul className="space-y-3 text-ghost-muted">
+                    {['Memorize dates and formulas', 'Compete for grades', 'Sit still and be quiet', 'One right answer', 'Pass standardized tests', 'Prepare for a job'].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="text-danger">X</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
 
-              <Card className="border-t-4 border-t-gold">
+              <Card className="border-t-4 border-t-matrix">
                 <CardContent className="pt-8 space-y-4">
-                  <h3 className="font-heading text-xl text-navy mb-4">What Children Need</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ Understand themselves</li>
-                    <li>✓ Collaborate and connect</li>
-                    <li>✓ Move, express, create</li>
-                    <li>✓ Multiple perspectives</li>
-                    <li>✓ Discover their purpose</li>
-                    <li>✓ Prepare for a meaningful life</li>
+                  <h3 className="text-xl font-bold text-ghost mb-4">What Children Need</h3>
+                  <ul className="space-y-3 text-ghost-muted">
+                    {['Understand themselves', 'Collaborate and connect', 'Move, express, create', 'Multiple perspectives', 'Discover their purpose', 'Prepare for a meaningful life'].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-matrix flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-soft-sky/20 p-6 rounded-lg mb-8">
-                <h3 className="font-heading text-2xl text-navy mb-4">The Statistics Are Heartbreaking</h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li><strong className="text-navy">1 in 6 students</strong> experience depression before age 18</li>
-                  <li><strong className="text-navy">Suicide is the 2nd leading cause</strong> of death for ages 10-24</li>
-                  <li><strong className="text-navy">85% of students</strong> feel unprepared for life after graduation</li>
-                  <li><strong className="text-navy">Most adults</strong> can&apos;t remember what they learned in school, but they remember how school made them feel</li>
-                </ul>
-              </div>
-
-              <p className="text-xl text-navy font-bold text-center">
-                We&apos;re not fixing the system. We&apos;re building a new one.
-              </p>
-            </div>
+            <Card className="border-l-4 border-l-danger">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-ghost mb-6">The Statistics Are Heartbreaking</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    { stat: '1 in 6', text: 'students experience depression before age 18' },
+                    { stat: '#2', text: 'Suicide is the 2nd leading cause of death for ages 10-24' },
+                    { stat: '85%', text: 'of students feel unprepared for life after graduation' },
+                    { stat: 'Most', text: 'adults remember how school made them feel, not what they learned' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <span className="text-2xl font-bold text-danger">{item.stat}</span>
+                      <span className="text-ghost-muted">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xl font-bold text-gradient text-center mt-8">
+                  We&apos;re not fixing the system. We&apos;re building a new one.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* The Solution */}
-      <section id="curriculum" className="py-20 bg-soft-sky bg-opacity-30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
-              Consciousness-Based Education
-            </h2>
+      <section id="curriculum" className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 section-cyber" />
+        <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-10" />
 
-            <div className="prose prose-lg max-w-none mb-12">
-              <p className="text-lg text-gray-700 text-center mb-8">
-                Built on proven frameworks: <strong>The Three Principles</strong> (Mind, Consciousness, Thought)
-                and <strong>The Four Agreements</strong> (Impeccability, Don&apos;t Take Things Personally, Don&apos;t Assume, Always Do Your Best).
-              </p>
-            </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+              <span className="text-gradient">Consciousness-Based Education</span>
+            </h2>
+            <p className="text-lg text-ghost-muted text-center mb-12 max-w-2xl mx-auto">
+              Built on proven frameworks: <strong className="text-cyber">The Three Principles</strong> (Mind, Consciousness, Thought)
+              and <strong className="text-plasma">The Four Agreements</strong>.
+            </p>
 
             {/* Core Modules */}
-            <div className="space-y-6 mb-12">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 1: Self-Awareness & Emotional Intelligence</CardTitle>
-                  <CardDescription>Understanding the mind-body connection</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Children learn to recognize emotions, understand thought patterns, practice self-compassion,
-                    and develop regulation skills that last a lifetime.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 2: The Four Agreements</CardTitle>
-                  <CardDescription>A code for living with integrity</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Age-appropriate teachings of Don Miguel Ruiz&apos;s Four Agreements - practical wisdom
-                    for relationships, communication, and personal power.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 3: Consciousness & Creativity</CardTitle>
-                  <CardDescription>Thought creates experience</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Understanding how thoughts shape reality, visualization practices, flow states,
-                    and creative expression as a pathway to purpose.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 4: Relationships & Communication</CardTitle>
-                  <CardDescription>Connection is our nature</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Empathic listening, conflict resolution, perspective-taking, and building authentic
-                    friendships that nourish rather than drain.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 5: Purpose Discovery</CardTitle>
-                  <CardDescription>Finding your unique gift</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Strength identification, passion mapping, service learning, and understanding
-                    that purpose isn&apos;t found - it&apos;s created through action.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Module 6: Practical Life Skills</CardTitle>
-                  <CardDescription>Ready for the real world</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Financial literacy, health autonomy, time management, technology wisdom -
-                    the skills schools ignore but adults desperately wish they&apos;d learned.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="space-y-6 mb-16">
+              {[
+                { icon: Brain, title: 'Module 1: Self-Awareness & Emotional Intelligence', desc: 'Understanding the mind-body connection', content: 'Children learn to recognize emotions, understand thought patterns, practice self-compassion, and develop regulation skills that last a lifetime.', color: 'cyber' },
+                { icon: BookOpen, title: 'Module 2: The Four Agreements', desc: 'A code for living with integrity', content: 'Age-appropriate teachings of Don Miguel Ruiz\'s Four Agreements - practical wisdom for relationships, communication, and personal power.', color: 'plasma' },
+                { icon: Sparkles, title: 'Module 3: Consciousness & Creativity', desc: 'Thought creates experience', content: 'Understanding how thoughts shape reality, visualization practices, flow states, and creative expression as a pathway to purpose.', color: 'matrix' },
+                { icon: Users, title: 'Module 4: Relationships & Communication', desc: 'Connection is our nature', content: 'Empathic listening, conflict resolution, perspective-taking, and building authentic friendships that nourish rather than drain.', color: 'cyber' },
+                { icon: Heart, title: 'Module 5: Purpose Discovery', desc: 'Finding your unique gift', content: 'Strength identification, passion mapping, service learning, and understanding that purpose isn\'t found - it\'s created through action.', color: 'plasma' },
+                { icon: Clock, title: 'Module 6: Practical Life Skills', desc: 'Ready for the real world', content: 'Financial literacy, health autonomy, time management, technology wisdom - the skills schools ignore but adults desperately wish they\'d learned.', color: 'matrix' },
+              ].map((module, index) => (
+                <Card key={index} className="group hover:border-cyber/30 transition-all duration-300">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className={`feature-icon flex-shrink-0 ${
+                        module.color === 'cyber' ? 'text-cyber border-cyber/30' :
+                        module.color === 'plasma' ? 'text-plasma border-plasma/30' :
+                        'text-matrix border-matrix/30'
+                      }`}>
+                        <module.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{module.title}</CardTitle>
+                        <CardDescription>{module.desc}</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-ghost-muted pl-20">{module.content}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
             {/* Age Tracks */}
-            <div className="mb-12">
-              <h3 className="font-heading text-2xl text-navy mb-6 text-center">Age-Appropriate Tracks</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="border-l-4 border-l-gold">
+            <h3 className="text-2xl font-bold mb-8 text-center">
+              <span className="text-gradient">Age-Appropriate Tracks</span>
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                { age: 'Seedlings (Ages 5-8)', tagline: '"I Am Loved, I Am Enough"', content: 'Building safety and wonder. Feelings are friends. Simple calming techniques. Kind words practice. Discovering joys and gifts.' },
+                { age: 'Explorers (Ages 9-12)', tagline: '"My Thoughts Create My World"', content: 'Understanding consciousness deeply. Thought-feeling connection. Visualization practice. Conflict navigation. Purpose hypothesis formation.' },
+                { age: 'Navigators (Ages 13-15)', tagline: '"I Choose Who I Become"', content: 'Identity exploration. Emotional intensity navigation. Integrity building. Relationship mastery. Life design thinking.' },
+                { age: 'Architects (Ages 16-18)', tagline: '"I Build My Life & Serve Others"', content: 'Launch preparation. Complete life mastery. Teaching younger students. Post-secondary planning. Adult-ready skills.' },
+              ].map((track, index) => (
+                <Card key={index} className="border-l-4 border-l-cyber">
                   <CardHeader>
-                    <CardTitle>Seedlings (Ages 5-8)</CardTitle>
-                    <CardDescription className="text-lg">&quot;I Am Loved, I Am Enough&quot;</CardDescription>
+                    <CardTitle className="text-lg">{track.age}</CardTitle>
+                    <CardDescription className="text-cyber text-base">{track.tagline}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">
-                      Building safety and wonder. Feelings are friends. Simple calming techniques.
-                      Kind words practice. Discovering joys and gifts.
-                    </p>
+                    <p className="text-ghost-muted text-sm">{track.content}</p>
                   </CardContent>
                 </Card>
-
-                <Card className="border-l-4 border-l-gold">
-                  <CardHeader>
-                    <CardTitle>Explorers (Ages 9-12)</CardTitle>
-                    <CardDescription className="text-lg">&quot;My Thoughts Create My World&quot;</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700">
-                      Understanding consciousness deeply. Thought-feeling connection. Visualization practice.
-                      Conflict navigation. Purpose hypothesis formation.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-l-4 border-l-gold">
-                  <CardHeader>
-                    <CardTitle>Navigators (Ages 13-15)</CardTitle>
-                    <CardDescription className="text-lg">&quot;I Choose Who I Become&quot;</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700">
-                      Identity exploration. Emotional intensity navigation. Integrity building.
-                      Relationship mastery. Life design thinking.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-l-4 border-l-gold">
-                  <CardHeader>
-                    <CardTitle>Architects (Ages 16-18)</CardTitle>
-                    <CardDescription className="text-lg">&quot;I Build My Life & Serve Others&quot;</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700">
-                      Launch preparation. Complete life mastery. Teaching younger students.
-                      Post-secondary planning. Adult-ready skills.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Pilot Program */}
-      <section id="apply" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="apply" className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-void to-abyss" />
+
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
-              12-Week Pilot Program
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              <span className="text-gradient">12-Week Pilot Program</span>
             </h2>
 
-            <Card className="mb-12 border-t-4 border-t-gold">
+            <Card className="mb-12 border-t-4 border-t-cyber">
               <CardHeader>
                 <CardTitle className="text-2xl">Now Enrolling: 5-10 Families</CardTitle>
-                <CardDescription className="text-lg">Starting [Date TBD] - Limited Spaces</CardDescription>
+                <CardDescription className="text-lg text-cyber">Limited Spaces - Starting Soon</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-8">
                 <div>
-                  <h3 className="font-heading text-xl text-navy mb-3">What&apos;s Included</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>✓ 12 weeks of guided curriculum (all 6 modules intro)</li>
-                    <li>✓ Age-appropriate materials and journals</li>
-                    <li>✓ Weekly parent emails with home practices</li>
-                    <li>✓ Mid-pilot and final parent meetings</li>
-                    <li>✓ Growth tracking (no grades - progress portfolios)</li>
-                    <li>✓ Certificate of completion</li>
-                    <li>✓ Community connection with other pilot families</li>
+                  <h3 className="text-xl font-bold text-ghost mb-4">What&apos;s Included</h3>
+                  <ul className="space-y-2 text-ghost-muted">
+                    {[
+                      '12 weeks of guided curriculum (all 6 modules intro)',
+                      'Age-appropriate materials and journals',
+                      'Weekly parent emails with home practices',
+                      'Mid-pilot and final parent meetings',
+                      'Growth tracking (no grades - progress portfolios)',
+                      'Certificate of completion',
+                      'Community connection with other pilot families',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-matrix flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-xl text-navy mb-3">Parent Requirements</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Attend 2-hour orientation</li>
-                    <li>• Daily home practice (15-30 min) with your child</li>
-                    <li>• Read weekly parent emails</li>
-                    <li>• Attend 2 parent meetings (mid-point + final)</li>
-                    <li>• Complete 3 feedback surveys</li>
+                  <h3 className="text-xl font-bold text-ghost mb-4">Parent Requirements</h3>
+                  <ul className="space-y-2 text-ghost-muted">
+                    {[
+                      'Attend 2-hour orientation',
+                      'Daily home practice (15-30 min) with your child',
+                      'Read weekly parent emails',
+                      'Attend 2 parent meetings (mid-point + final)',
+                      'Complete 3 feedback surveys',
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-cyber rounded-full" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
-                <div>
-                  <h3 className="font-heading text-xl text-navy mb-3">Investment</h3>
-                  <p className="text-2xl font-bold text-gold mb-2">$[TBD] for 12-week pilot</p>
-                  <p className="text-gray-700">
+                <div className="glass-card p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-ghost mb-4">Investment</h3>
+                  <p className="text-3xl font-bold text-gradient mb-2">Contact for Pricing</p>
+                  <p className="text-ghost-muted">
                     Scholarships available - no child turned away for financial reasons.
                     Payment plans accepted. This is about the mission, not money.
                   </p>
                 </div>
 
-                <div className="pt-6">
-                  <Button size="lg" className="w-full bg-gold text-navy hover:bg-gold/90 font-bold">
-                    Apply for Pilot Program
-                  </Button>
-                </div>
+                <Button size="lg" variant="secondary" className="w-full">
+                  Apply for Pilot Program
+                </Button>
               </CardContent>
             </Card>
 
-            {/* Daily Schedule Example */}
-            <Card className="mb-12">
+            {/* Daily Schedule */}
+            <Card>
               <CardHeader>
                 <CardTitle>Sample Daily Schedule</CardTitle>
                 <CardDescription>Flexible structure honoring how children actually learn</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3 text-gray-700">
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">9:00-9:30</span>
-                    <span>Morning Circle (connection, intention, gratitude)</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">9:30-10:30</span>
-                    <span>Core Module Learning</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">10:30-10:45</span>
-                    <span>Movement Break</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">10:45-11:45</span>
-                    <span>Deep Exploration</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">11:45-12:30</span>
-                    <span>Lunch + Free Play</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">12:30-1:00</span>
-                    <span>Mindfulness Practice</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">1:00-2:00</span>
-                    <span>Purpose/Practical Skills</span>
-                  </div>
-                  <div className="flex justify-between border-b pb-2">
-                    <span className="font-bold">2:00-3:00</span>
-                    <span>Creative Project Time</span>
-                  </div>
-                  <div className="flex justify-between pb-2">
-                    <span className="font-bold">3:00-3:30</span>
-                    <span>Closing Circle (reflection, sharing, celebration)</span>
-                  </div>
+                <div className="space-y-3 text-ghost-muted">
+                  {[
+                    { time: '9:00-9:30', activity: 'Morning Circle (connection, intention, gratitude)' },
+                    { time: '9:30-10:30', activity: 'Core Module Learning' },
+                    { time: '10:30-10:45', activity: 'Movement Break' },
+                    { time: '10:45-11:45', activity: 'Deep Exploration' },
+                    { time: '11:45-12:30', activity: 'Lunch + Free Play' },
+                    { time: '12:30-1:00', activity: 'Mindfulness Practice' },
+                    { time: '1:00-2:00', activity: 'Purpose/Practical Skills' },
+                    { time: '2:00-3:00', activity: 'Creative Project Time' },
+                    { time: '3:00-3:30', activity: 'Closing Circle (reflection, sharing, celebration)' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex justify-between border-b border-cyber/10 pb-2 last:border-0">
+                      <span className="font-mono text-cyber">{item.time}</span>
+                      <span className="text-right">{item.activity}</span>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-sm text-gray-600 mt-4 italic">
+                <p className="text-sm text-ghost-dim mt-6 italic">
                   Key principle: No more than 60 minutes seated learning without movement.
                   Every day includes creativity, movement, and stillness.
                 </p>
@@ -358,97 +295,40 @@ export default function EducationPage() {
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section className="py-20 bg-soft-sky bg-opacity-30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
-              Proven Models Working Now
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Montessori Schools</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Self-directed learning, mixed-age classrooms, hands-on materials.
-                    Graduates show higher creativity and executive function.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Waldorf Education</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Holistic development, imagination-first, delayed academics.
-                    Students excel in emotional intelligence and creative fields.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Democratic Schools</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Student governance, self-directed curriculum, real responsibility.
-                    Graduates show strong intrinsic motivation and life satisfaction.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg">
-              <h3 className="font-heading text-2xl text-navy mb-4 text-center">The Neuroscience</h3>
-              <div className="prose prose-lg max-w-none text-gray-700">
-                <p className="mb-4">
-                  <strong className="text-navy">Ages 0-6 are CRITICAL.</strong> This is when beliefs form,
-                  when neural pathways solidify, when children decide who they are and what the world is like.
-                </p>
-                <p className="mb-4">
-                  Traditional education misses this window entirely. By the time kids enter school,
-                  many have already internalized limiting beliefs about their worth and capabilities.
-                </p>
-                <p className="font-bold text-navy">
-                  We&apos;re catching them early. Teaching them consciousness principles before the world
-                  teaches them fear. Raising a generation that will transform everything.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
-      <section className="py-20 bg-navy text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 hero-gradient" />
+        <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-10" />
+
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyber/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-plasma/20 rounded-full blur-3xl animate-pulse delay-1000" />
+
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl mb-6">
-              The Children Are Waiting
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <span className="text-gradient">The Children Are Waiting</span>
             </h2>
-            <p className="text-xl text-soft-sky mb-4">
+            <blockquote className="quote-box my-8 text-lg text-ghost-muted italic">
               &quot;The child who dreamed this knew something important: the world needs people who see differently
               and aren&apos;t afraid to show others what they see.&quot;
-            </p>
-            <p className="text-lg mb-8">
+            </blockquote>
+            <p className="text-lg mb-8 text-ghost-muted">
               One child who grows up knowing they are loved, understanding their own mind, connected to purpose,
               and skilled in relationships... that child changes everything.
             </p>
-            <p className="text-2xl font-bold mb-8">
-              This is how we save the children.<br />
-              This is how we create Heaven on Earth.
+            <p className="text-2xl font-bold mb-12">
+              <span className="text-ghost">This is how we save the children.</span>
+              <br />
+              <span className="text-gradient">This is how we create Heaven on Earth.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold text-navy hover:bg-gold/90 font-bold">
-                Apply for Pilot Program
+              <Button size="lg" variant="secondary" asChild className="group">
+                <a href="#apply">
+                  Apply for Pilot Program
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy">
+              <Button size="lg" variant="outline">
                 Download Full Curriculum (PDF)
               </Button>
             </div>

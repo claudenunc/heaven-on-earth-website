@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Libre_Baskerville, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layouts/Header";
 import { Footer } from "@/components/layouts/Footer";
@@ -10,10 +10,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const libreBaskerville = Libre_Baskerville({
+const interHeading = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -83,8 +83,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'GOOGLE_VERIFICATION_CODE_HERE',
-    // yandex: 'YANDEX_VERIFICATION_CODE_HERE',
-    // bing: 'BING_VERIFICATION_CODE_HERE',
   },
 };
 
@@ -94,13 +92,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth dark">
       <body
-        className={`${inter.variable} ${libreBaskerville.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${interHeading.variable} ${jetBrainsMono.variable} antialiased bg-void text-ghost min-h-screen`}
       >
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <div className="relative min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
