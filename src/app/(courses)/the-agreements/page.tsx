@@ -446,7 +446,7 @@ export default function TheAgreementsPage() {
                   </ul>
                   <Button
                     className="w-full bg-matrix text-void hover:bg-matrix/90 hover:shadow-glow-md"
-                    onClick={() => window.location.href = 'mailto:nathan@heavenonearth.ai?subject=THE AGREEMENTS Beta Program'}
+                    onClick={() => window.location.href = 'mailto:envy@nevaehsai.com?subject=THE AGREEMENTS Beta Program'}
                   >
                     Join Beta Program
                   </Button>

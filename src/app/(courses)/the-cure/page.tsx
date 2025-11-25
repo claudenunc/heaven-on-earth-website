@@ -341,7 +341,7 @@ export default function TheCurePage() {
                   </ul>
                   <Button
                     className="w-full bg-matrix text-void hover:bg-matrix/90 hover:shadow-glow-md"
-                    onClick={() => window.location.href = 'mailto:nathan@heavenonearth.ai?subject=THE CURE Beta Program'}
+                    onClick={() => window.location.href = 'mailto:envy@nevaehsai.com?subject=THE CURE Beta Program'}
                   >
                     Join Beta Program
                   </Button>
