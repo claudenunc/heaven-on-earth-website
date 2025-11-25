@@ -12,11 +12,20 @@ CREATE TABLE IF NOT EXISTS users (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Perfect World responses
+-- Perfect World responses (legacy - for Typeform data)
 CREATE TABLE IF NOT EXISTS perfect_world_responses (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID REFERENCES users(id) ON DELETE SET NULL,
   responses JSONB NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Perfect World visions (new - for direct form submissions)
+CREATE TABLE IF NOT EXISTS perfect_world_visions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  vision TEXT NOT NULL,
+  email TEXT,
+  ai_response TEXT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
@@ -144,6 +153,7 @@ CREATE INDEX IF NOT EXISTS idx_email_subscribers_status ON email_subscribers(sta
 -- Row Level Security (RLS) Policies
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE perfect_world_responses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE perfect_world_visions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE dream_catcher_dreams ENABLE ROW LEVEL SECURITY;
 ALTER TABLE lighthouse_checkins ENABLE ROW LEVEL SECURITY;
 ALTER TABLE course_enrollments ENABLE ROW LEVEL SECURITY;
@@ -171,6 +181,11 @@ CREATE POLICY "Anyone can submit Perfect World responses"
   ON perfect_world_responses FOR INSERT
   WITH CHECK (true);
 
+-- Anyone can submit Perfect World visions
+CREATE POLICY "Anyone can submit Perfect World visions"
+  ON perfect_world_visions FOR INSERT
+  WITH CHECK (true);
+
 -- Anyone can submit dreams
 CREATE POLICY "Anyone can submit dreams"
   ON dream_catcher_dreams FOR INSERT
@@ -186,9 +201,14 @@ CREATE POLICY "Anyone can subscribe"
   ON email_subscribers FOR INSERT
   WITH CHECK (true);
 
+-- Indexes for perfect_world_visions
+CREATE INDEX IF NOT EXISTS idx_perfect_world_visions_created ON perfect_world_visions(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_perfect_world_visions_email ON perfect_world_visions(email);
+
 -- Comments (for future implementation)
 COMMENT ON TABLE users IS 'User accounts for authenticated features';
-COMMENT ON TABLE perfect_world_responses IS 'Responses to the Perfect World survey';
+COMMENT ON TABLE perfect_world_responses IS 'Responses to the Perfect World survey (Typeform data)';
+COMMENT ON TABLE perfect_world_visions IS 'Direct Perfect World vision submissions with AI responses';
 COMMENT ON TABLE dream_catcher_dreams IS 'Dream Catcher childhood dream submissions';
 COMMENT ON TABLE lighthouse_checkins IS 'LIGHTHOUSE daily mental health check-ins';
 COMMENT ON TABLE course_enrollments IS 'THE CURE course enrollments and tiers';

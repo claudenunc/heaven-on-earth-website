@@ -11,6 +11,8 @@ const navigation = [
     name: 'Tools',
     href: '#',
     children: [
+      { name: 'THE CURE', href: '/the-cure', description: 'Free depression recovery program' },
+      { name: 'THE AGREEMENTS', href: '/the-agreements', description: 'Transform your consciousness' },
       { name: 'LIGHTHOUSE', href: '/lighthouse', description: 'Daily mental health check-ins' },
       { name: 'Dream Catcher', href: '/dream-catcher', description: 'Reclaim your childhood dreams' },
       { name: 'Perfect World', href: '/perfect-world', description: 'Share your vision' },
