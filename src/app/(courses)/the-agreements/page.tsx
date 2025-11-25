@@ -415,13 +415,16 @@ export default function TheAgreementsPage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Foundation Tier */}
-              <Card className="relative bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
+              <Card className="relative bg-void/50 border-matrix border-2 shadow-glow-lg backdrop-blur">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-matrix text-void px-4 py-1 rounded-full text-sm font-bold">
+                  BETA - 5 SPOTS ONLY
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-ghost">Foundation</CardTitle>
                   <CardDescription className="text-ghost-muted">Self-paced awakening</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-cyber">$97</span>
-                    <span className="text-ghost-muted"> one-time</span>
+                    <span className="text-4xl font-bold text-matrix">FREE</span>
+                    <span className="text-ghost-muted"> (Beta Access)</span>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -442,25 +445,24 @@ export default function TheAgreementsPage() {
                     ))}
                   </ul>
                   <Button
-                    className="w-full bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md"
-                    onClick={() => handleCheckout('foundation')}
-                    disabled={selectedTier === 'foundation'}
+                    className="w-full bg-matrix text-void hover:bg-matrix/90 hover:shadow-glow-md"
+                    onClick={() => window.location.href = 'mailto:nathan@heavenonearth.ai?subject=THE AGREEMENTS Beta Program'}
                   >
-                    {selectedTier === 'foundation' ? 'Processing...' : 'Start Foundation'}
+                    Join Beta Program
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Transformation Tier */}
-              <Card className="relative bg-void/50 border-plasma border-2 shadow-glow-lg backdrop-blur">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-plasma text-white px-4 py-1 rounded-full text-sm font-bold">
-                  MOST POPULAR
+              <Card className="relative bg-void/50 border-plasma/30 backdrop-blur opacity-75">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-plasma/50 text-ghost px-4 py-1 rounded-full text-sm font-bold">
+                  COMING SOON
                 </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-ghost">Transformation</CardTitle>
                   <CardDescription className="text-ghost-muted">Guided group journey</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-plasma">$297</span>
+                    <span className="text-4xl font-bold text-ghost-muted">$297</span>
                     <span className="text-ghost-muted"> one-time</span>
                   </div>
                 </CardHeader>
@@ -476,28 +478,30 @@ export default function TheAgreementsPage() {
                       'Certificate of completion'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-plasma flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-ghost-muted flex-shrink-0 mt-0.5" />
                         <span className="text-ghost-muted">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
-                    className="w-full bg-plasma text-white hover:bg-plasma/90 hover:shadow-glow-md"
-                    onClick={() => handleCheckout('transformation')}
-                    disabled={selectedTier === 'transformation'}
+                    className="w-full bg-plasma/30 text-ghost-muted cursor-not-allowed opacity-50"
+                    disabled
                   >
-                    {selectedTier === 'transformation' ? 'Processing...' : 'Start Transformation'}
+                    Coming Soon
                   </Button>
                 </CardContent>
               </Card>
 
               {/* Architect Tier */}
-              <Card className="relative bg-void/50 border-cyber border-2 backdrop-blur hover:shadow-glow-md transition-shadow">
+              <Card className="relative bg-void/50 border-cyber/30 backdrop-blur opacity-75">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyber/50 text-ghost px-4 py-1 rounded-full text-sm font-bold">
+                  COMING SOON
+                </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-ghost">Architect</CardTitle>
                   <CardDescription className="text-ghost-muted">Master & teach</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-cyber">$997</span>
+                    <span className="text-4xl font-bold text-ghost-muted">$997</span>
                     <span className="text-ghost-muted"> one-time</span>
                   </div>
                 </CardHeader>
@@ -513,17 +517,16 @@ export default function TheAgreementsPage() {
                       'Teach THE AGREEMENTS'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-ghost-muted flex-shrink-0 mt-0.5" />
                         <span className="text-ghost-muted">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
-                    className="w-full bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md"
-                    onClick={() => handleCheckout('architect')}
-                    disabled={selectedTier === 'architect'}
+                    className="w-full bg-cyber/30 text-ghost-muted cursor-not-allowed opacity-50"
+                    disabled
                   >
-                    {selectedTier === 'architect' ? 'Processing...' : 'Start Architect'}
+                    Coming Soon
                   </Button>
                 </CardContent>
               </Card>
