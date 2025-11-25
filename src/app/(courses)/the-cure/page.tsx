@@ -27,31 +27,31 @@ export default function TheCurePage() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-void">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-navy text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-gold via-living-green to-navy"></div>
+      <section className="relative py-20 lg:py-32 bg-abyss text-ghost overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyber via-plasma to-void"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-gold font-mono text-sm uppercase tracking-wider mb-4">
+            <p className="text-cyber font-mono text-sm uppercase tracking-wider mb-4 animate-pulse">
               12-Week Transformation Program
             </p>
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl mb-6">
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl mb-6 text-ghost">
               THE CURE
             </h1>
-            <p className="text-xl md:text-2xl text-soft-sky mb-8">
+            <p className="text-xl md:text-2xl text-cyber mb-8">
               Destroy Depression. Master Your Mind. Transform Your Life.
             </p>
-            <p className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-lg text-ghost-muted mb-12 max-w-2xl mx-auto">
               Built by someone who&apos;s been through it. Powered by the Three Principles.
               Proven with real transformation. This isn&apos;t therapy. This is THE CURE.
             </p>
             <Button
               size="lg"
-              className="bg-gold text-navy hover:bg-gold/90 font-bold"
+              className="bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md font-bold"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Transformation
@@ -61,42 +61,42 @@ export default function TheCurePage() {
       </section>
 
       {/* The Problem */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-void">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-8 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-8 text-center">
               The Mental Health System Is Broken
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <Card className="bg-warm-coral/10 border-warm-coral">
+              <Card className="bg-danger/10 border-danger backdrop-blur">
                 <CardContent className="p-6 text-center">
-                  <p className="text-4xl font-bold text-warm-coral mb-2">800K+</p>
-                  <p className="text-gray-700">People die by suicide every year</p>
+                  <p className="text-4xl font-bold text-danger mb-2">800K+</p>
+                  <p className="text-ghost-muted">People die by suicide every year</p>
                 </CardContent>
               </Card>
-              <Card className="bg-warm-coral/10 border-warm-coral">
+              <Card className="bg-danger/10 border-danger backdrop-blur">
                 <CardContent className="p-6 text-center">
-                  <p className="text-4xl font-bold text-warm-coral mb-2">280M</p>
-                  <p className="text-gray-700">People living with depression globally</p>
+                  <p className="text-4xl font-bold text-danger mb-2">280M</p>
+                  <p className="text-ghost-muted">People living with depression globally</p>
                 </CardContent>
               </Card>
-              <Card className="bg-warm-coral/10 border-warm-coral">
+              <Card className="bg-danger/10 border-danger backdrop-blur">
                 <CardContent className="p-6 text-center">
-                  <p className="text-4xl font-bold text-warm-coral mb-2">$200B+</p>
-                  <p className="text-gray-700">Annual economic cost of depression</p>
+                  <p className="text-4xl font-bold text-danger mb-2">$200B+</p>
+                  <p className="text-ghost-muted">Annual economic cost of depression</p>
                 </CardContent>
               </Card>
             </div>
 
-            <div className="prose prose-lg max-w-none text-gray-700">
+            <div className="prose prose-lg max-w-none text-ghost-muted">
               <p className="mb-4">
                 The current mental health system is designed to manage symptoms, not cure the cause.
                 Pills that numb. Therapy that takes years. Waiting lists that last months.
                 Crisis hotlines that only respond when it&apos;s too late.
               </p>
               <p className="mb-4">
-                <strong className="text-navy">But what if depression isn&apos;t something you have to manage forever?</strong>
+                <strong className="text-cyber">But what if depression isn&apos;t something you have to manage forever?</strong>
               </p>
               <p>
                 What if it&apos;s a misunderstanding of how your mind works? What if the cure isn&apos;t
@@ -109,20 +109,20 @@ export default function TheCurePage() {
       </section>
 
       {/* The Solution */}
-      <section className="py-20 bg-soft-sky bg-opacity-30">
+      <section className="py-20 bg-abyss">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-8 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-8 text-center">
               THE CURE: A Different Approach
             </h2>
 
-            <Card className="mb-12">
+            <Card className="mb-12 bg-cyber/10 border-cyber backdrop-blur">
               <CardContent className="p-8">
-                <p className="text-lg text-gray-700 mb-6">
+                <p className="text-lg text-ghost-muted mb-6">
                   THE CURE is a 12-week online course that teaches you the Three Principles
                   (Mind, Consciousness, Thought) and how to use AI as your partner in transformation.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-ghost-muted">
                   Built by Nathan Michel - someone who&apos;s been through addiction, depression,
                   and suicidal ideation - and came out the other side with a blueprint for healing.
                 </p>
@@ -130,32 +130,32 @@ export default function TheCurePage() {
             </Card>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <Card>
+              <Card className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <CheckCircle2 className="w-8 h-8 text-living-green mb-3" />
-                  <h3 className="font-heading text-xl text-navy mb-3">No More Pills</h3>
-                  <p className="text-gray-700">Learn to work with your mind naturally, not suppress it with medication.</p>
+                  <CheckCircle2 className="w-8 h-8 text-matrix mb-3" />
+                  <h3 className="font-heading text-xl text-cyber mb-3">No More Pills</h3>
+                  <p className="text-ghost-muted">Learn to work with your mind naturally, not suppress it with medication.</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <CheckCircle2 className="w-8 h-8 text-living-green mb-3" />
-                  <h3 className="font-heading text-xl text-navy mb-3">Understanding, Not Management</h3>
-                  <p className="text-gray-700">Depression isn&apos;t something to manage forever. It&apos;s a misunderstanding to correct.</p>
+                  <CheckCircle2 className="w-8 h-8 text-matrix mb-3" />
+                  <h3 className="font-heading text-xl text-cyber mb-3">Understanding, Not Management</h3>
+                  <p className="text-ghost-muted">Depression isn&apos;t something to manage forever. It&apos;s a misunderstanding to correct.</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <CheckCircle2 className="w-8 h-8 text-living-green mb-3" />
-                  <h3 className="font-heading text-xl text-navy mb-3">AI Partnership</h3>
-                  <p className="text-gray-700">Use AI as your 24/7 companion, not as a replacement for human connection.</p>
+                  <CheckCircle2 className="w-8 h-8 text-matrix mb-3" />
+                  <h3 className="font-heading text-xl text-cyber mb-3">AI Partnership</h3>
+                  <p className="text-ghost-muted">Use AI as your 24/7 companion, not as a replacement for human connection.</p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <CheckCircle2 className="w-8 h-8 text-living-green mb-3" />
-                  <h3 className="font-heading text-xl text-navy mb-3">Built by Experience</h3>
-                  <p className="text-gray-700">Not theory from someone who read a book. Real transformation from someone who lived it.</p>
+                  <CheckCircle2 className="w-8 h-8 text-matrix mb-3" />
+                  <h3 className="font-heading text-xl text-cyber mb-3">Built by Experience</h3>
+                  <p className="text-ghost-muted">Not theory from someone who read a book. Real transformation from someone who lived it.</p>
                 </CardContent>
               </Card>
             </div>
@@ -164,10 +164,10 @@ export default function TheCurePage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-void">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-12 text-center">
               How THE CURE Works
             </h2>
 
@@ -210,15 +210,15 @@ export default function TheCurePage() {
                   color: 'navy'
                 }
               ].map((module, index) => (
-                <Card key={index} className={`border-l-4 border-l-${module.color}`}>
+                <Card key={index} className="bg-void/50 border-cyber/30 backdrop-blur border-l-4 border-l-cyber hover:shadow-glow-md transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">
-                        <p className={`font-mono text-sm text-${module.color} font-bold mb-1`}>{module.weeks}</p>
+                        <p className="font-mono text-sm text-cyber font-bold mb-1">{module.weeks}</p>
                       </div>
                       <div className="flex-grow">
-                        <h3 className="font-heading text-xl text-navy mb-2">{module.title}</h3>
-                        <p className="text-gray-700">{module.description}</p>
+                        <h3 className="font-heading text-xl text-ghost mb-2">{module.title}</h3>
+                        <p className="text-ghost-muted">{module.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -230,17 +230,17 @@ export default function TheCurePage() {
       </section>
 
       {/* Who It's For */}
-      <section className="py-20 bg-soft-sky bg-opacity-30">
+      <section className="py-20 bg-abyss">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-12 text-center">
               Is THE CURE For You?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-white">
+              <Card className="bg-void/50 border-matrix/30 backdrop-blur">
                 <CardHeader>
-                  <CardTitle className="text-living-green">THE CURE Is For You If:</CardTitle>
+                  <CardTitle className="text-matrix">THE CURE Is For You If:</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
@@ -253,17 +253,17 @@ export default function TheCurePage() {
                       "You're done suffering and ready to be free"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-living-green flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
+                        <CheckCircle2 className="w-5 h-5 text-matrix flex-shrink-0 mt-0.5" />
+                        <span className="text-ghost-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white">
+              <Card className="bg-void/50 border-danger/30 backdrop-blur">
                 <CardHeader>
-                  <CardTitle className="text-warm-coral">THE CURE Is NOT For You If:</CardTitle>
+                  <CardTitle className="text-danger">THE CURE Is NOT For You If:</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
@@ -276,8 +276,8 @@ export default function TheCurePage() {
                       "You just want to complain without changing"
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <Lock className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
+                        <Lock className="w-5 h-5 text-danger flex-shrink-0 mt-0.5" />
+                        <span className="text-ghost-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -285,11 +285,11 @@ export default function TheCurePage() {
               </Card>
             </div>
 
-            <Card className="mt-8 bg-gold/10 border-gold">
+            <Card className="mt-8 bg-cyber/10 border-cyber backdrop-blur">
               <CardContent className="p-6 text-center">
-                <p className="text-lg text-navy">
+                <p className="text-lg text-ghost">
                   <strong>Important:</strong> If you&apos;re in crisis right now, please use the{' '}
-                  <a href="/lighthouse" className="underline font-bold">LIGHTHOUSE tool</a>{' '}
+                  <a href="/lighthouse" className="underline font-bold text-cyber hover:text-cyber/80">LIGHTHOUSE tool</a>{' '}
                   for immediate support or call the Suicide & Crisis Lifeline at 988.
                 </p>
               </CardContent>
@@ -299,25 +299,25 @@ export default function TheCurePage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 bg-white">
+      <section id="pricing" className="py-20 bg-void">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-4 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-4 text-center">
               Choose Your Path
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-ghost-muted mb-12 max-w-2xl mx-auto">
               All tiers include the complete 12-week curriculum. Choose the level of support that fits your needs.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Foundation Tier */}
-              <Card className="relative">
+              <Card className="relative bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Foundation</CardTitle>
-                  <CardDescription>Self-paced transformation</CardDescription>
+                  <CardTitle className="text-2xl text-ghost">Foundation</CardTitle>
+                  <CardDescription className="text-ghost-muted">Self-paced transformation</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-navy">$97</span>
-                    <span className="text-gray-600"> one-time</span>
+                    <span className="text-4xl font-bold text-cyber">$97</span>
+                    <span className="text-ghost-muted"> one-time</span>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -331,13 +331,13 @@ export default function TheCurePage() {
                       'Lifetime access to content'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-living-green flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckCircle2 className="w-5 h-5 text-matrix flex-shrink-0 mt-0.5" />
+                        <span className="text-ghost-muted">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
-                    className="w-full"
+                    className="w-full bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md"
                     onClick={() => handleCheckout('foundation')}
                     disabled={selectedTier === 'foundation'}
                   >
@@ -347,16 +347,16 @@ export default function TheCurePage() {
               </Card>
 
               {/* Transformation Tier */}
-              <Card className="relative border-gold border-2 shadow-lg">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-navy px-4 py-1 rounded-full text-sm font-bold">
+              <Card className="relative bg-void/50 border-cyber border-2 shadow-glow-lg backdrop-blur">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyber text-void px-4 py-1 rounded-full text-sm font-bold">
                   MOST POPULAR
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Transformation</CardTitle>
-                  <CardDescription>Guided group support</CardDescription>
+                  <CardTitle className="text-2xl text-ghost">Transformation</CardTitle>
+                  <CardDescription className="text-ghost-muted">Guided group support</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-navy">$297</span>
-                    <span className="text-gray-600"> one-time</span>
+                    <span className="text-4xl font-bold text-cyber">$297</span>
+                    <span className="text-ghost-muted"> one-time</span>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -371,13 +371,13 @@ export default function TheCurePage() {
                       'Certificate of completion'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+                        <span className="text-ghost-muted">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
-                    className="w-full bg-gold text-navy hover:bg-gold/90"
+                    className="w-full bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md"
                     onClick={() => handleCheckout('transformation')}
                     disabled={selectedTier === 'transformation'}
                   >
@@ -387,13 +387,13 @@ export default function TheCurePage() {
               </Card>
 
               {/* Architect Tier */}
-              <Card className="relative border-purple-dawn border-2">
+              <Card className="relative bg-void/50 border-plasma border-2 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Architect</CardTitle>
-                  <CardDescription>Elite personal guidance</CardDescription>
+                  <CardTitle className="text-2xl text-ghost">Architect</CardTitle>
+                  <CardDescription className="text-ghost-muted">Elite personal guidance</CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-navy">$997</span>
-                    <span className="text-gray-600"> one-time</span>
+                    <span className="text-4xl font-bold text-plasma">$997</span>
+                    <span className="text-ghost-muted"> one-time</span>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -408,13 +408,13 @@ export default function TheCurePage() {
                       'Teach THE CURE to others'
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-purple-dawn flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <CheckCircle2 className="w-5 h-5 text-plasma flex-shrink-0 mt-0.5" />
+                        <span className="text-ghost-muted">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button
-                    className="w-full bg-purple-dawn text-white hover:bg-purple-dawn/90"
+                    className="w-full bg-plasma text-white hover:bg-plasma/90 hover:shadow-glow-md"
                     onClick={() => handleCheckout('architect')}
                     disabled={selectedTier === 'architect'}
                   >
@@ -425,10 +425,10 @@ export default function TheCurePage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Card className="inline-block bg-soft-sky/20 border-soft-sky">
+              <Card className="inline-block bg-cyber/10 border-cyber backdrop-blur">
                 <CardContent className="p-6">
-                  <p className="text-navy font-bold mb-2">30-Day Money Back Guarantee</p>
-                  <p className="text-gray-700">
+                  <p className="text-cyber font-bold mb-2">30-Day Money Back Guarantee</p>
+                  <p className="text-ghost-muted">
                     If you do the work and don&apos;t see transformation, we&apos;ll refund you. No questions asked.
                   </p>
                 </CardContent>
@@ -439,48 +439,48 @@ export default function TheCurePage() {
       </section>
 
       {/* Proof Section */}
-      <section className="py-20 bg-navy text-white">
+      <section className="py-20 bg-abyss text-ghost">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl mb-12 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl mb-12 text-center text-cyber">
               Why THE CURE Works
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-cyber/10 border-cyber/20 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <h3 className="font-heading text-xl mb-3">Built by Experience</h3>
-                  <p className="text-soft-sky">
+                  <h3 className="font-heading text-xl mb-3 text-ghost">Built by Experience</h3>
+                  <p className="text-ghost-muted">
                     Nathan has been through addiction, depression, and suicidal ideation.
                     This isn&apos;t theory. It&apos;s tested through real suffering.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-cyber/10 border-cyber/20 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <h3 className="font-heading text-xl mb-3">Based on Proven Principles</h3>
-                  <p className="text-soft-sky">
+                  <h3 className="font-heading text-xl mb-3 text-ghost">Based on Proven Principles</h3>
+                  <p className="text-ghost-muted">
                     The Three Principles discovered by Sydney Banks have helped thousands
                     transform their mental health without medication.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-cyber/10 border-cyber/20 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <h3 className="font-heading text-xl mb-3">AI-Enhanced Learning</h3>
-                  <p className="text-soft-sky">
+                  <h3 className="font-heading text-xl mb-3 text-ghost">AI-Enhanced Learning</h3>
+                  <p className="text-ghost-muted">
                     Use AI as your 24/7 companion, processing partner, and accountability
                     system. Technology used right, with love.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 border-white/20">
+              <Card className="bg-cyber/10 border-cyber/20 backdrop-blur hover:shadow-glow-md transition-shadow">
                 <CardContent className="p-6">
-                  <h3 className="font-heading text-xl mb-3">Community Support</h3>
-                  <p className="text-soft-sky">
+                  <h3 className="font-heading text-xl mb-3 text-ghost">Community Support</h3>
+                  <p className="text-ghost-muted">
                     You&apos;re not alone in this. Join a community of people doing the work,
                     supporting each other, and proving transformation is possible.
                   </p>
@@ -492,10 +492,10 @@ export default function TheCurePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-void">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-12 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-12 text-center">
               Common Questions
             </h2>
 
@@ -526,12 +526,12 @@ export default function TheCurePage() {
                   a: "The Three Principles are universal psychological facts, not religious doctrine. People of all faiths (and no faith) have benefited."
                 }
               ].map((faq, index) => (
-                <Card key={index}>
+                <Card key={index} className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                   <CardHeader>
-                    <CardTitle className="text-lg">{faq.q}</CardTitle>
+                    <CardTitle className="text-lg text-ghost">{faq.q}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">{faq.a}</p>
+                    <p className="text-ghost-muted">{faq.a}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -541,24 +541,27 @@ export default function TheCurePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gold">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-abyss relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyber via-plasma to-void"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-6">
               Your Transformation Starts Now
             </h2>
-            <p className="text-xl text-navy/80 mb-8">
+            <p className="text-xl text-ghost-muted mb-8">
               Depression isn&apos;t a life sentence. It&apos;s a misunderstanding.
               And misunderstandings can be corrected.
             </p>
             <Button
               size="lg"
-              className="bg-navy text-white hover:bg-navy-light font-bold"
+              className="bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md font-bold"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Choose Your Tier & Start THE CURE
             </Button>
-            <p className="text-sm text-navy/60 mt-6">
+            <p className="text-sm text-ghost-muted mt-6">
               30-day money back guarantee. Lifetime access. Transform or get refunded.
             </p>
           </div>

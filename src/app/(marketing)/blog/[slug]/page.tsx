@@ -185,11 +185,11 @@ export default async function BlogPostPage({ params }: PageProps) {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-void">
       {/* Back Button */}
-      <div className="bg-soft-sky bg-opacity-20 py-4">
+      <div className="bg-abyss py-4 border-b border-cyber/20">
         <div className="container mx-auto px-4">
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="ghost" size="sm" className="text-ghost hover:text-cyber hover:bg-cyber/10" asChild>
             <a href="/blog" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
@@ -204,25 +204,25 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="max-w-4xl mx-auto">
             {/* Category Badge */}
             <div className="mb-6">
-              <span className="inline-block bg-gold/20 text-gold px-4 py-1 rounded-full text-sm font-medium">
+              <span className="inline-block bg-cyber/20 text-cyber px-4 py-1 rounded-full text-sm font-medium">
                 {post.category}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-navy mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-ghost mb-6">
               {post.title}
             </h1>
 
             {/* Metadata */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8 pb-8 border-b">
+            <div className="flex flex-wrap items-center gap-6 text-ghost-muted mb-8 pb-8 border-b border-cyber/20">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-full bg-cyber text-void flex items-center justify-center font-bold">
                   {post.author.split(' ').map((n: string) => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="font-medium text-navy">{post.author}</p>
-                  <p className="text-sm">{post.authorBio}</p>
+                  <p className="font-medium text-ghost">{post.author}</p>
+                  <p className="text-sm text-ghost-muted">{post.authorBio}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 ml-auto">
@@ -243,21 +243,21 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             {/* Social Share */}
             <div className="mb-12 flex items-center gap-4">
-              <span className="text-sm font-medium text-gray-600">Share:</span>
+              <span className="text-sm font-medium text-ghost-muted">Share:</span>
               <div className="flex gap-2">
-                <Button size="sm" variant="outline" className="gap-2">
+                <Button size="sm" variant="outline" className="gap-2 border-cyber/30 text-ghost-muted hover:bg-cyber/10 hover:text-cyber">
                   <Twitter className="w-4 h-4" />
                   Twitter
                 </Button>
-                <Button size="sm" variant="outline" className="gap-2">
+                <Button size="sm" variant="outline" className="gap-2 border-cyber/30 text-ghost-muted hover:bg-cyber/10 hover:text-cyber">
                   <Facebook className="w-4 h-4" />
                   Facebook
                 </Button>
-                <Button size="sm" variant="outline" className="gap-2">
+                <Button size="sm" variant="outline" className="gap-2 border-cyber/30 text-ghost-muted hover:bg-cyber/10 hover:text-cyber">
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
                 </Button>
-                <Button size="sm" variant="outline">
+                <Button size="sm" variant="outline" className="border-cyber/30 text-ghost-muted hover:bg-cyber/10 hover:text-cyber">
                   <Share2 className="w-4 h-4" />
                 </Button>
               </div>
@@ -266,22 +266,22 @@ export default async function BlogPostPage({ params }: PageProps) {
             {/* Article Content */}
             <div className="prose prose-lg max-w-none">
               <div
-                className="text-gray-700 leading-relaxed"
+                className="text-ghost-muted leading-relaxed"
                 dangerouslySetInnerHTML={{
                   __html: post.content
                     .split('\n')
                     .map((line: string) => {
                       // Convert markdown-style headings
                       if (line.startsWith('## ')) {
-                        return `<h2 class="font-heading text-3xl text-navy mt-12 mb-6">${line.slice(3)}</h2>`;
+                        return `<h2 class="font-heading text-3xl text-cyber mt-12 mb-6">${line.slice(3)}</h2>`;
                       }
                       if (line.startsWith('### ')) {
-                        return `<h3 class="font-heading text-2xl text-navy mt-8 mb-4">${line.slice(4)}</h3>`;
+                        return `<h3 class="font-heading text-2xl text-ghost mt-8 mb-4">${line.slice(4)}</h3>`;
                       }
                       // Convert markdown-style bold
-                      line = line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-navy">$1</strong>');
+                      line = line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-ghost">$1</strong>');
                       // Convert markdown-style links
-                      line = line.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-gold hover:text-gold/80 underline">$1</a>');
+                      line = line.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="text-cyber hover:text-cyber/80 underline">$1</a>');
                       // Convert list items
                       if (line.startsWith('- ')) {
                         return `<li class="ml-6 mb-2">${line.slice(2)}</li>`;
@@ -298,21 +298,21 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
 
             {/* Newsletter CTA */}
-            <Card className="my-12 bg-gold/10 border-gold">
+            <Card className="my-12 bg-cyber/10 border-cyber backdrop-blur">
               <CardHeader>
-                <CardTitle>Get Weekly Insights Like This</CardTitle>
+                <CardTitle className="text-ghost">Get Weekly Insights Like This</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 mb-4">
+                <p className="text-ghost-muted mb-4">
                   Join thousands building Heaven on Earth. No spam, just transformation.
                 </p>
                 <form className="flex gap-2">
                   <input
                     type="email"
                     placeholder="your@email.com"
-                    className="flex-grow px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold"
+                    className="flex-grow px-4 py-2 rounded-lg bg-void border border-cyber/30 text-ghost focus:outline-none focus:ring-2 focus:ring-cyber"
                   />
-                  <Button className="bg-gold text-navy hover:bg-gold/90">
+                  <Button className="bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md">
                     Subscribe
                   </Button>
                 </form>
@@ -320,20 +320,20 @@ export default async function BlogPostPage({ params }: PageProps) {
             </Card>
 
             {/* Author Bio */}
-            <Card className="my-12">
+            <Card className="my-12 bg-void/50 border-cyber/30 backdrop-blur">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-full bg-navy text-white flex items-center justify-center font-bold text-2xl flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-cyber text-void flex items-center justify-center font-bold text-2xl flex-shrink-0">
                     {post.author.split(' ').map((n: string) => n[0]).join('')}
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl text-navy mb-2">About {post.author}</h3>
-                    <p className="text-gray-700 mb-4">
+                    <h3 className="font-heading text-xl text-ghost mb-2">About {post.author}</h3>
+                    <p className="text-ghost-muted mb-4">
                       Nathan Michel is the founder of Heaven on Earth, building systems to destroy depression,
                       save children, and prove AI-human partnership works. Former addict. Three-time
                       near-death survivor. Current optimist building the future.
                     </p>
-                    <Button variant="outline" size="sm" asChild>
+                    <Button variant="outline" size="sm" className="border-cyber/30 text-cyber hover:bg-cyber/10" asChild>
                       <a href="/about">Read Full Story</a>
                     </Button>
                   </div>
@@ -345,24 +345,24 @@ export default async function BlogPostPage({ params }: PageProps) {
       </article>
 
       {/* Related Posts */}
-      <section className="py-20 bg-soft-sky bg-opacity-20">
+      <section className="py-20 bg-abyss">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl text-navy mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-8">
               Related Articles
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
               {relatedPosts.map((related) => (
-                <Card key={related.slug} className="hover:shadow-lg transition-shadow">
+                <Card key={related.slug} className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                   <CardContent className="p-6">
-                    <span className="inline-block bg-gold/20 text-gold px-3 py-1 rounded-full text-xs font-medium mb-3">
+                    <span className="inline-block bg-cyber/20 text-cyber px-3 py-1 rounded-full text-xs font-medium mb-3">
                       {related.category}
                     </span>
-                    <h3 className="font-heading text-lg text-navy mb-4 hover:text-gold transition-colors">
+                    <h3 className="font-heading text-lg text-ghost mb-4 hover:text-cyber transition-colors">
                       <a href={`/blog/${related.slug}`}>{related.title}</a>
                     </h3>
-                    <Button variant="link" className="p-0 h-auto text-gold" asChild>
+                    <Button variant="link" className="p-0 h-auto text-cyber hover:text-cyber/80" asChild>
                       <a href={`/blog/${related.slug}`}>Read More →</a>
                     </Button>
                   </CardContent>
@@ -374,19 +374,22 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-navy text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-void text-ghost relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyber via-plasma to-void"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-heading text-3xl md:text-4xl mb-6">
               Ready to Take Action?
             </h2>
-            <p className="text-xl text-soft-sky mb-8">
+            <p className="text-xl text-cyber mb-8">
               Reading is the start. Transformation requires action.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-gold text-navy hover:bg-gold/90 font-bold"
+                className="bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md font-bold"
                 asChild
               >
                 <a href="/the-cure">Enroll in THE CURE</a>
@@ -394,7 +397,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-navy"
+                className="border-cyber text-cyber hover:bg-cyber hover:text-void hover:shadow-glow-md"
                 asChild
               >
                 <a href="/initiatives">See All Initiatives</a>

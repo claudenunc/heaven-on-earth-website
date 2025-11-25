@@ -147,27 +147,27 @@ export default function BlogPage() {
   const popularPosts = allPosts.slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-void">
       {/* Hero Section */}
-      <section className="bg-navy text-white py-20">
+      <section className="bg-abyss text-ghost py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-heading text-4xl md:text-6xl mb-6">
               Insights for Building Heaven on Earth
             </h1>
-            <p className="text-xl text-soft-sky mb-8">
+            <p className="text-xl text-cyber mb-8">
               What&apos;s broken. What&apos;s possible. How to start. Real results. Kids first.
             </p>
 
             {/* Search Bar */}
             <div className="max-w-xl mx-auto relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ghost-dim" />
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-lg text-navy focus:outline-none focus:ring-2 focus:ring-gold"
+                className="w-full pl-12 pr-4 py-3 rounded-lg bg-void text-ghost border border-cyber/30 focus:outline-none focus:ring-2 focus:ring-cyber"
               />
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function BlogPage() {
                       variant={selectedCategory === category ? 'default' : 'outline'}
                       size="sm"
                       onClick={() => setSelectedCategory(category)}
-                      className={selectedCategory === category ? 'bg-gold text-navy hover:bg-gold/90' : ''}
+                      className={selectedCategory === category ? 'bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md' : 'border-cyber/30 text-ghost-muted hover:bg-cyber/10'}
                     >
                       {category}
                     </Button>
@@ -199,27 +199,27 @@ export default function BlogPage() {
                 {/* Blog Posts Grid */}
                 <div className="space-y-8">
                   {filteredPosts.length === 0 ? (
-                    <Card>
+                    <Card className="bg-void/50 border-cyber/30 backdrop-blur">
                       <CardContent className="p-12 text-center">
-                        <p className="text-gray-600">No articles found. Try a different search or category.</p>
+                        <p className="text-ghost-muted">No articles found. Try a different search or category.</p>
                       </CardContent>
                     </Card>
                   ) : (
                     filteredPosts.map((post) => (
-                      <Card key={post.slug} className="hover:shadow-lg transition-shadow">
+                      <Card key={post.slug} className="bg-void/50 border-cyber/30 backdrop-blur hover:shadow-glow-md transition-shadow">
                         <div className="md:flex">
                           {/* Image */}
-                          <div className="md:w-1/3 bg-soft-sky bg-opacity-30 flex items-center justify-center p-8">
+                          <div className="md:w-1/3 bg-abyss flex items-center justify-center p-8 border-r border-cyber/20">
                             <div className="text-center">
                               <div className="text-6xl mb-2">📝</div>
-                              <p className="text-sm text-gray-600 font-mono">{post.category}</p>
+                              <p className="text-sm text-cyber font-mono">{post.category}</p>
                             </div>
                           </div>
 
                           {/* Content */}
                           <div className="md:w-2/3 p-6">
                             <CardHeader className="p-0 mb-4">
-                              <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
+                              <div className="flex items-center gap-4 text-sm text-ghost-muted mb-3">
                                 <span className="flex items-center gap-1">
                                   <Calendar className="w-4 h-4" />
                                   {new Date(post.date).toLocaleDateString('en-US', {
@@ -233,13 +233,13 @@ export default function BlogPage() {
                                   {post.readTime}
                                 </span>
                               </div>
-                              <CardTitle className="text-2xl mb-2 hover:text-gold transition-colors cursor-pointer">
+                              <CardTitle className="text-2xl mb-2 text-ghost hover:text-cyber transition-colors cursor-pointer">
                                 <a href={`/blog/${post.slug}`}>{post.title}</a>
                               </CardTitle>
                             </CardHeader>
                             <CardContent className="p-0">
-                              <p className="text-gray-700 mb-4">{post.excerpt}</p>
-                              <Button variant="link" className="p-0 h-auto text-gold hover:text-gold/80" asChild>
+                              <p className="text-ghost-muted mb-4">{post.excerpt}</p>
+                              <Button variant="link" className="p-0 h-auto text-cyber hover:text-cyber/80" asChild>
                                 <a href={`/blog/${post.slug}`} className="flex items-center gap-2">
                                   Read More <ArrowRight className="w-4 h-4" />
                                 </a>
@@ -265,19 +265,19 @@ export default function BlogPage() {
               {/* Sidebar */}
               <div className="lg:col-span-4 mt-12 lg:mt-0">
                 {/* Newsletter Signup */}
-                <Card className="mb-8 bg-gold/10 border-gold">
+                <Card className="mb-8 bg-cyber/10 border-cyber backdrop-blur">
                   <CardHeader>
-                    <CardTitle className="text-xl">Stay Updated</CardTitle>
-                    <CardDescription>Get weekly insights on building Heaven on Earth</CardDescription>
+                    <CardTitle className="text-xl text-ghost">Stay Updated</CardTitle>
+                    <CardDescription className="text-ghost-muted">Get weekly insights on building Heaven on Earth</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <form className="space-y-3">
                       <input
                         type="email"
                         placeholder="your@email.com"
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold"
+                        className="w-full px-4 py-2 rounded-lg bg-void border border-cyber/30 text-ghost focus:outline-none focus:ring-2 focus:ring-cyber"
                       />
-                      <Button className="w-full bg-gold text-navy hover:bg-gold/90">
+                      <Button className="w-full bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md">
                         Subscribe
                       </Button>
                     </form>
@@ -285,9 +285,9 @@ export default function BlogPage() {
                 </Card>
 
                 {/* Popular Posts */}
-                <Card className="mb-8">
+                <Card className="mb-8 bg-void/50 border-cyber/30 backdrop-blur">
                   <CardHeader>
-                    <CardTitle className="text-xl">Popular Posts</CardTitle>
+                    <CardTitle className="text-xl text-ghost">Popular Posts</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -297,10 +297,10 @@ export default function BlogPage() {
                           href={`/blog/${post.slug}`}
                           className="block group"
                         >
-                          <h4 className="font-medium text-navy group-hover:text-gold transition-colors mb-1">
+                          <h4 className="font-medium text-ghost group-hover:text-cyber transition-colors mb-1">
                             {post.title}
                           </h4>
-                          <p className="text-sm text-gray-600">{post.readTime}</p>
+                          <p className="text-sm text-ghost-dim">{post.readTime}</p>
                         </a>
                       ))}
                     </div>
@@ -308,9 +308,9 @@ export default function BlogPage() {
                 </Card>
 
                 {/* Categories */}
-                <Card>
+                <Card className="bg-void/50 border-cyber/30 backdrop-blur">
                   <CardHeader>
-                    <CardTitle className="text-xl">Categories</CardTitle>
+                    <CardTitle className="text-xl text-ghost">Categories</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
@@ -320,10 +320,10 @@ export default function BlogPage() {
                           <button
                             key={category}
                             onClick={() => setSelectedCategory(category)}
-                            className="flex justify-between items-center w-full p-2 rounded hover:bg-soft-sky/20 transition-colors text-left"
+                            className="flex justify-between items-center w-full p-2 rounded hover:bg-cyber/10 transition-colors text-left"
                           >
-                            <span className="text-navy">{category}</span>
-                            <span className="text-sm text-gray-600">({count})</span>
+                            <span className="text-ghost">{category}</span>
+                            <span className="text-sm text-ghost-dim">({count})</span>
                           </button>
                         );
                       })}
@@ -337,19 +337,22 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-navy text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-abyss text-ghost relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-cyber via-plasma to-void"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl mb-6 text-ghost">
               Ready to Transform Your Life?
             </h2>
-            <p className="text-xl text-soft-sky mb-8">
+            <p className="text-xl text-cyber mb-8">
               Reading is good. Doing is better. Take the first step today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-gold text-navy hover:bg-gold/90 font-bold"
+                className="bg-cyber text-void hover:bg-cyber/90 hover:shadow-glow-md font-bold"
                 asChild
               >
                 <a href="/the-cure">Enroll in THE CURE</a>
@@ -357,7 +360,7 @@ export default function BlogPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-navy"
+                className="border-cyber text-cyber hover:bg-cyber hover:text-void hover:shadow-glow-md"
                 asChild
               >
                 <a href="/lighthouse">Try LIGHTHOUSE (Free)</a>

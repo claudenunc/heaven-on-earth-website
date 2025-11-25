@@ -9,7 +9,14 @@ export interface BlogPost {
   readTime: string;
 }
 
+// Import Gemini research-backed posts
+import { geminiResearchPosts } from './gemini-research-posts';
+
 export const blogPosts: BlogPost[] = [
+  // Gemini Research-Backed Posts (November 2025 - based on neuroscience, music therapy, community healing, EQ, alternative education research)
+  ...geminiResearchPosts,
+
+  // Original Posts
   {
     slug: "the-science-of-hope",
     title: "The Science of Hope: Why Your Brain Was Built to Heal",
