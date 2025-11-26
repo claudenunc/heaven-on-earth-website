@@ -146,14 +146,12 @@ export async function POST(request: NextRequest) {
     // Add to email subscribers (always, since email is required)
     await supabase
       .from('email_subscribers')
-      .insert({
+      .upsert({
         email: body.email.trim().toLowerCase(),
         source: 'perfect-world',
         tags: ['perfect-world-vision'],
         status: 'active',
-      })
-      .onConflict('email')
-      .merge(); // Update if already exists
+      }, { onConflict: 'email' });
 
     // Return successful response
     return NextResponse.json({
