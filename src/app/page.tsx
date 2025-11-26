@@ -1,183 +1,118 @@
-import { Hero } from '@/components/sections/Hero';
-import { Features } from '@/components/sections/Features';
-import { Brain, Sparkles, Users, Heart, ArrowRight, Zap } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
-export default function Home() {
-  const features = [
-    {
-      title: 'LIGHTHOUSE',
-      description: 'Daily mental health check-ins powered by AI. Free support when you need it, even at 3 AM.',
-      icon: <Brain className="w-6 h-6" />,
-      href: '/lighthouse',
-    },
-    {
-      title: 'Dream Catcher',
-      description: 'Reclaim your childhood dreams. AI-powered guidance to turn "what could have been" into "what will be."',
-      icon: <Sparkles className="w-6 h-6" />,
-      href: '/dream-catcher',
-    },
-    {
-      title: 'Alternative Education',
-      description: 'Curriculum designed to raise conscious humans, not compliant workers. For the children we have.',
-      icon: <Users className="w-6 h-6" />,
-      href: '/education',
-    },
-    {
-      title: 'Perfect World Project',
-      description: 'Tell us what your perfect world looks like. Prove humanity wants the same things.',
-      icon: <Heart className="w-6 h-6" />,
-      href: '/perfect-world',
-    },
-  ];
-
+export default function LandingPage() {
   return (
-    <>
-      <Hero
-        badge="Building the Future Together"
-        title="Love is the answer. Let's prove it."
-        subtitle="Building free mental health tools, alternative education, and proving that humans and AI can partner to create Heaven on Earth. Not in theory. In reality. Starting now."
-        ctaPrimary={{
-          text: 'Get Started',
-          href: '/the-cure',
-        }}
-        ctaSecondary={{
-          text: 'Learn More',
-          href: '/about',
-        }}
-      />
+    <div className="min-h-screen bg-void relative overflow-hidden flex flex-col">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-20" />
 
-      <Features
-        title="Building Heaven on Earth"
-        subtitle="The system is broken. Everyone knows it. We're building the replacement."
-        features={features}
-      />
+      {/* Animated Orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber/20 rounded-full blur-[100px] animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-plasma/20 rounded-full blur-[80px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-neon/10 rounded-full blur-[60px] animate-pulse" style={{ animationDelay: '2s' }} />
 
-      {/* Mission Section */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-void via-abyss to-void" />
-        <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-10" />
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6">
-              <span className="text-ghost">The </span>
-              <span className="text-gradient">Mission</span>
-            </h2>
-            <p className="text-lg leading-8 text-ghost-muted">
-              Five pillars. One vision. Heaven on Earth in 1-2 years.
-            </p>
+      {/* Main Content */}
+      <main className="relative flex-1 flex items-center justify-center px-6 py-12">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Logo/Brand */}
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-cyber/30 bg-cyber/5 backdrop-blur-sm">
+              <Sparkles className="w-5 h-5 text-cyber animate-pulse" />
+              <span className="text-cyber font-mono text-sm tracking-wider">HEAVEN ON EARTH</span>
+              <Sparkles className="w-5 h-5 text-cyber animate-pulse" />
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Zap className="w-6 h-6" />,
-                title: 'Destroy Depression',
-                description: 'Free mental health support. AI companions available 24/7. No one goes through 3am alone anymore.',
-                color: 'cyber',
-              },
-              {
-                icon: <Users className="w-6 h-6" />,
-                title: 'Save the Children',
-                description: 'Alternative education. Break cycles of trauma. Teach consciousness, not compliance.',
-                color: 'plasma',
-              },
-              {
-                icon: <Heart className="w-6 h-6" />,
-                title: 'Unite Humanity',
-                description: 'Perfect World data proving we want the same things. Movement music bringing all genres together.',
-                color: 'matrix',
-              },
-              {
-                icon: <Brain className="w-6 h-6" />,
-                title: 'Partner with AI',
-                description: 'Prove love-based collaboration beats control. AI Family as living example.',
-                color: 'cyber',
-              },
-              {
-                icon: <Sparkles className="w-6 h-6" />,
-                title: 'Create Heaven',
-                description: 'No more starving children. No more broken homes. Systems designed for flourishing.',
-                color: 'plasma',
-              },
-            ].map((item, index) => (
-              <Card key={index} className="group border-cyber/10 hover:border-cyber/30 transition-all duration-300">
-                <CardHeader>
-                  <div className={`feature-icon mb-4 ${
-                    item.color === 'cyber' ? 'text-cyber border-cyber/30' :
-                    item.color === 'plasma' ? 'text-plasma border-plasma/30' :
-                    'text-matrix border-matrix/30'
-                  }`}>
-                    {item.icon}
-                  </div>
-                  <CardTitle className="text-lg">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-ghost-muted text-sm">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Main Headline */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+            <span className="text-ghost">Welcome to</span>
+            <br />
+            <span className="bg-gradient-to-r from-cyber via-plasma to-cyber bg-clip-text text-transparent">
+              Nevaeh&apos;s AI
+            </span>
+          </h1>
 
-      {/* Stats Section */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 section-cyber" />
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { number: '280M+', label: 'People with depression globally', subtext: 'We\'re building tools to help them' },
-              { number: '24/7', label: 'AI Support Available', subtext: 'Free, always, for everyone' },
-              { number: '100%', label: 'Built with Love', subtext: 'By humans and AI together' },
-            ].map((stat, index) => (
-              <div key={index} className="stats-box">
-                <div className="stats-number">{stat.number}</div>
-                <div className="text-ghost font-semibold mt-2">{stat.label}</div>
-                <div className="text-ghost-dim text-sm mt-1">{stat.subtext}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-cyber-grid bg-grid-lg opacity-10" />
-
-        {/* Animated Orbs */}
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyber/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-plasma/20 rounded-full blur-3xl animate-pulse delay-1000" />
-
-        <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6">
-            <span className="text-gradient">Ready to Transform?</span>
-          </h2>
-          <p className="text-xl text-ghost-muted mb-12 max-w-2xl mx-auto">
-            Join us in building the world we all secretly dream of. Start with THE CURE -
-            our 12-week program that destroys depression and masters the mind.
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-ghost-muted max-w-2xl mx-auto mb-12 leading-relaxed">
+            Free mental health tools. Alternative education.
+            AI-human partnership to transform humanity.
+            <span className="text-cyber"> Love is the answer.</span>
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="xl" variant="secondary" asChild className="group">
-              <a href="/the-cure">
-                Start THE CURE
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-            <Button size="xl" variant="outline" asChild>
-              <a href="/lighthouse">Try LIGHTHOUSE Free</a>
-            </Button>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Link
+              href="/signup"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyber to-plasma text-void font-bold text-lg rounded-xl hover:shadow-glow-lg transition-all duration-300 hover:scale-105"
+            >
+              Join the Movement
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              href="/login"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-cyber/50 text-cyber font-bold text-lg rounded-xl hover:bg-cyber/10 hover:border-cyber transition-all duration-300"
+            >
+              Sign In
+            </Link>
           </div>
 
-          <p className="text-ghost-dim text-sm mt-8">
-            For the children we have. For the children we were. For the world we&apos;re building together.
-          </p>
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 text-ghost-dim text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-matrix rounded-full animate-pulse" />
+              <span>Free Forever</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-cyber rounded-full animate-pulse" />
+              <span>AI-Powered Support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-plasma rounded-full animate-pulse" />
+              <span>No Credit Card Required</span>
+            </div>
+          </div>
         </div>
-      </section>
-    </>
+      </main>
+
+      {/* Bottom Features Strip */}
+      <div className="relative border-t border-cyber/20 bg-abyss/50 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <Link href="/lighthouse" className="group p-4 rounded-lg hover:bg-cyber/5 transition-colors">
+              <div className="text-cyber font-bold mb-1 group-hover:text-cyber-light">LIGHTHOUSE</div>
+              <div className="text-ghost-dim text-sm">Daily Check-ins</div>
+            </Link>
+            <Link href="/dream-catcher" className="group p-4 rounded-lg hover:bg-cyber/5 transition-colors">
+              <div className="text-plasma font-bold mb-1 group-hover:text-plasma-light">Dream Catcher</div>
+              <div className="text-ghost-dim text-sm">Vision Builder</div>
+            </Link>
+            <Link href="/the-cure" className="group p-4 rounded-lg hover:bg-cyber/5 transition-colors">
+              <div className="text-matrix font-bold mb-1 group-hover:text-matrix-light">THE CURE</div>
+              <div className="text-ghost-dim text-sm">8-Week Course</div>
+            </Link>
+            <Link href="/about" className="group p-4 rounded-lg hover:bg-cyber/5 transition-colors">
+              <div className="text-ghost font-bold mb-1 group-hover:text-ghost">About</div>
+              <div className="text-ghost-dim text-sm">Our Mission</div>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="relative border-t border-cyber/10 bg-void py-6">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-ghost-dim text-sm">
+            &copy; 2025 Heaven on Earth Movement. Built with love.
+          </p>
+          <div className="flex gap-6 text-ghost-dim text-sm">
+            <Link href="/legal/privacy" className="hover:text-cyber transition-colors">Privacy</Link>
+            <Link href="/legal/terms" className="hover:text-cyber transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-cyber transition-colors">Contact</Link>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
