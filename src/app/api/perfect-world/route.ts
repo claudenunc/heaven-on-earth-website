@@ -16,7 +16,7 @@ const supabase = createClient(
 // Request body type
 interface PerfectWorldRequest {
   vision: string;
-  email: string;
+  email?: string;
 }
 
 // System prompt for AI response
@@ -62,27 +62,10 @@ export async function POST(request: NextRequest) {
     // Parse request body
     const body: PerfectWorldRequest = await request.json();
 
-    // Validate vision
+    // Validate input
     if (!body.vision || typeof body.vision !== 'string' || body.vision.trim().length === 0) {
       return NextResponse.json(
         { error: 'Vision text is required and must not be empty' },
-        { status: 400 }
-      );
-    }
-
-    // Validate email is required
-    if (!body.email || typeof body.email !== 'string' || body.email.trim().length === 0) {
-      return NextResponse.json(
-        { error: 'Email is required to share your vision' },
-        { status: 400 }
-      );
-    }
-
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email.trim())) {
-      return NextResponse.json(
-        { error: 'Please enter a valid email address' },
         { status: 400 }
       );
     }
@@ -132,7 +115,7 @@ export async function POST(request: NextRequest) {
       .from('perfect_world_visions')
       .insert({
         vision: body.vision.trim(),
-        email: body.email.trim().toLowerCase(),
+        email: body.email?.trim() || null,
         ai_response: aiResponse,
         created_at: new Date().toISOString(),
       });
@@ -143,15 +126,19 @@ export async function POST(request: NextRequest) {
       // User should still get their AI response
     }
 
-    // Add to email subscribers (always, since email is required)
-    await supabase
-      .from('email_subscribers')
-      .upsert({
-        email: body.email.trim().toLowerCase(),
-        source: 'perfect-world',
-        tags: ['perfect-world-vision'],
-        status: 'active',
-      }, { onConflict: 'email' });
+    // If email provided, add to email subscribers
+    if (body.email?.trim()) {
+      await supabase
+        .from('email_subscribers')
+        .insert({
+          email: body.email.trim(),
+          source: 'perfect-world',
+          tags: ['perfect-world-vision'],
+          status: 'active',
+        })
+        .onConflict('email')
+        .merge(); // Update if already exists
+    }
 
     // Return successful response
     return NextResponse.json({

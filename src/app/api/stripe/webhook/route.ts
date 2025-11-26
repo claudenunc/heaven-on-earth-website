@@ -1,16 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-11-17.clover',
-});
+// Lazy initialization to prevent build errors when env vars are missing
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key) {
+    throw new Error('STRIPE_SECRET_KEY is not configured');
+  }
+  return new Stripe(key, {
+    apiVersion: '2024-11-20.acacia',
+  });
+}
 
-// Initialize Supabase admin client for server-side operations
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabase(): SupabaseClient {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    throw new Error('Supabase environment variables are not configured');
+  }
+  return createClient(url, key);
+}
 
 async function buffer(readable: ReadableStream<Uint8Array>) {
   const chunks: Uint8Array[] = [];
@@ -37,6 +47,8 @@ export async function POST(request: NextRequest) {
   }
 
   let event: Stripe.Event;
+
+  const stripe = getStripe();
 
   try {
     event = stripe.webhooks.constructEvent(
@@ -105,6 +117,8 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   console.log(`Processing enrollment: ${customerEmail} - ${tier} tier`);
 
+  const supabase = getSupabase();
+
   // Create or get user
   let userId: string;
   const { data: existingUser } = await supabase
@@ -162,6 +176,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
   const customerId = subscription.customer as string;
+  const supabase = getSupabase();
 
   // Update enrollment status to inactive
   const { error } = await supabase
