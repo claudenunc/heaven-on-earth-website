@@ -41,3 +41,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.example
+
+# Large media files (keep repo size small)
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.avi
+*.mkv
+
+# Course video/audio folders
+clips for course instructions/
+music mp3/
