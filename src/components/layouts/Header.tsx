@@ -107,12 +107,13 @@ export function Header() {
 
                 {/* Dropdown Menu */}
                 {item.children && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 glass-card rounded-xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-0 mt-2 w-64 glass-card rounded-xl p-2 animate-in fade-in slide-in-from-top-2 duration-200 shadow-glow-md z-50">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
                         href={child.href}
                         className="block px-4 py-3 rounded-lg hover:bg-cyber/10 transition-colors duration-200 group"
+                        onClick={() => setActiveDropdown(null)}
                       >
                         <span className="block text-sm font-medium text-ghost group-hover:text-cyber transition-colors">
                           {child.name}

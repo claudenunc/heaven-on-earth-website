@@ -26,7 +26,7 @@ export default function PerfectWorldPage() {
         },
         body: JSON.stringify({
           vision: vision.trim(),
-          email: email.trim() || undefined,
+          email: email.trim(),
         }),
       });
 
@@ -220,11 +220,12 @@ export default function PerfectWorldPage() {
 
                 <Card className="border-cyber/20 bg-abyss/80 backdrop-blur-sm">
                   <CardHeader>
-                    <CardTitle className="text-cyber text-lg">
-                      Email (Optional)
+                    <CardTitle className="text-cyber text-lg flex items-center gap-2">
+                      Email Address
+                      <span className="text-cyber">*</span>
                     </CardTitle>
                     <CardDescription className="text-ghost-dim">
-                      Want to join the movement? We'll send you updates on how your vision is helping build Heaven on Earth.
+                      Join the movement. We'll send you updates on how your vision is helping build Heaven on Earth.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -234,6 +235,7 @@ export default function PerfectWorldPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
                       className="w-full p-4 bg-void border border-cyber/20 rounded-lg text-ghost placeholder:text-ghost-dim focus:border-cyber focus:ring-2 focus:ring-cyber/20 outline-none transition-all duration-200"
+                      required
                     />
                   </CardContent>
                 </Card>
@@ -246,7 +248,7 @@ export default function PerfectWorldPage() {
 
                 <Button
                   type="submit"
-                  disabled={isSubmitting || vision.trim().length < 20}
+                  disabled={isSubmitting || vision.trim().length < 20 || !email.trim()}
                   className="w-full bg-cyber text-void hover:bg-cyber-light font-bold text-lg py-6 shadow-glow-md hover:shadow-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (

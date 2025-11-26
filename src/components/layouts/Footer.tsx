@@ -8,6 +8,7 @@ const footerNav = {
     { name: 'Dream Catcher', href: '/dream-catcher' },
     { name: 'Perfect World', href: '/perfect-world' },
     { name: 'THE CURE', href: '/the-cure' },
+    { name: 'THE AGREEMENTS', href: '/the-agreements' },
   ],
   resources: [
     { name: 'About', href: '/about' },
