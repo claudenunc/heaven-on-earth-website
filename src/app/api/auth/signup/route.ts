@@ -64,14 +64,13 @@ export async function POST(request: NextRequest) {
       }, { status: 200 });
     }
 
-    // New user - create subscriber record
+    // New user - create subscriber record (simplified schema)
     const { data: newUser, error: insertError } = await supabase
       .from('email_subscribers')
       .insert({
         email,
         name,
         source: 'login-page',
-        tags: ['movement-member'],
         status: 'active',
         created_at: new Date().toISOString(),
       })
@@ -80,7 +79,10 @@ export async function POST(request: NextRequest) {
 
     if (insertError) {
       console.error('Database error:', insertError);
-      throw new Error('Failed to create account');
+      return NextResponse.json({
+        error: 'Database error: ' + insertError.message,
+        code: insertError.code
+      }, { status: 500 });
     }
 
     // Return successful response
@@ -97,19 +99,11 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Signup API Error:', error);
 
-    // Check for specific errors
-    if (error.message?.includes('Supabase environment')) {
-      return NextResponse.json(
-        { error: 'Server configuration error. Please contact support.' },
-        { status: 500 }
-      );
-    }
-
-    // Return detailed error for debugging
+    // Generic error response
     return NextResponse.json(
       {
         error: 'Failed to process signup. Please try again.',
-        details: error.message || 'Unknown error'
+        details: process.env.NODE_ENV === 'development' ? error.message : undefined
       },
       { status: 500 }
     );
