@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Loader2, Sparkles, Mail, User, ArrowRight, Heart, Zap } from 'lucide-react';
+import { Loader2, Sparkles, Mail, User, ArrowRight, CheckCircle2, Zap, Heart, Shield, Users } from 'lucide-react';
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [newsletter, setNewsletter] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,15 +33,11 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to login');
+        throw new Error(data.error || 'Failed to create account');
       }
 
-      // Success - redirect based on whether they're new or returning
-      if (data.isNewUser) {
-        router.push('/lighthouse?welcome=true');
-      } else {
-        router.push('/lighthouse');
-      }
+      // Success - redirect to welcome experience
+      router.push('/lighthouse?welcome=true');
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
     } finally {
@@ -58,15 +55,53 @@ export default function LoginPage() {
             <div className="absolute inset-0 rounded-2xl bg-cyber/30 blur-xl animate-glow-pulse" />
           </div>
           <h1 className="font-heading text-4xl md:text-5xl mb-3 text-ghost">
-            Welcome <span className="text-gradient">Back</span>
+            Join the <span className="text-gradient">Movement</span>
           </h1>
           <p className="text-ghost-muted text-lg">
-            Enter the movement to transform humanity
+            Be part of building Heaven on Earth
           </p>
         </div>
 
+        {/* Benefits Section */}
+        <div className="glass-card p-6 rounded-xl mb-6 animate-in fade-in slide-in-from-bottom duration-700 delay-100">
+          <h2 className="text-sm font-semibold text-cyber mb-4 flex items-center gap-2">
+            <Sparkles className="w-4 h-4" />
+            What You Get Access To
+          </h2>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-ghost font-medium">LIGHTHOUSE Daily Check-ins</p>
+                <p className="text-ghost-dim text-sm">Free mental health support & guidance</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-ghost font-medium">Community Access</p>
+                <p className="text-ghost-dim text-sm">Connect with others on the journey</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-ghost font-medium">Transformation Tools</p>
+                <p className="text-ghost-dim text-sm">Resources to build your perfect world</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-cyber flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-ghost font-medium">Movement Updates</p>
+                <p className="text-ghost-dim text-sm">First to know about new courses & tools</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Main Card */}
-        <div className="glass-card p-8 rounded-2xl animate-in fade-in slide-in-from-bottom duration-700 delay-150">
+        <div className="glass-card p-8 rounded-2xl animate-in fade-in slide-in-from-bottom duration-700 delay-200">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div className="space-y-2">
@@ -105,6 +140,20 @@ export default function LoginPage() {
               />
             </div>
 
+            {/* Newsletter Checkbox */}
+            <div className="flex items-start gap-3 p-4 bg-cyber/5 border border-cyber/20 rounded-lg">
+              <input
+                id="newsletter"
+                type="checkbox"
+                checked={newsletter}
+                onChange={(e) => setNewsletter(e.target.checked)}
+                className="mt-1 w-4 h-4 rounded border-cyber/30 bg-void text-cyber focus:ring-cyber focus:ring-offset-0 focus:ring-2 cursor-pointer"
+              />
+              <label htmlFor="newsletter" className="text-sm text-ghost-muted cursor-pointer flex-1">
+                Keep me updated on new courses, tools, and movement progress
+              </label>
+            </div>
+
             {/* Error Message */}
             {error && (
               <div className="p-4 bg-danger/10 border border-danger/30 rounded-lg text-danger text-sm flex items-start gap-2 animate-in fade-in slide-in-from-top duration-300">
@@ -122,12 +171,12 @@ export default function LoginPage() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Entering...</span>
+                  <span>Creating Account...</span>
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-5 h-5" />
-                  <span>Enter the Movement</span>
+                  <Heart className="w-5 h-5" />
+                  <span>Create Account</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
@@ -139,31 +188,37 @@ export default function LoginPage() {
                 <div className="w-full border-t border-cyber/20"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-abyss px-2 text-ghost-dim">New here?</span>
+                <span className="bg-abyss px-2 text-ghost-dim">Already have an account?</span>
               </div>
             </div>
 
-            {/* Sign Up Link */}
+            {/* Login Link */}
             <Link
-              href="/signup"
+              href="/login"
               className="cyber-btn-outline w-full text-base py-3 rounded-xl flex items-center justify-center gap-2"
             >
-              <Heart className="w-4 h-4" />
-              <span>Create Account</span>
+              <Users className="w-4 h-4" />
+              <span>Sign In</span>
             </Link>
           </form>
 
           {/* Privacy Notice */}
-          <p className="text-xs text-ghost-dim text-center mt-6">
-            By continuing, you agree to our{' '}
-            <Link href="/legal/terms" className="text-cyber hover:text-cyber-light underline">
-              Terms
-            </Link>{' '}
-            and{' '}
-            <Link href="/legal/privacy" className="text-cyber hover:text-cyber-light underline">
-              Privacy Policy
-            </Link>
-          </p>
+          <div className="mt-6 p-4 bg-cyber/5 border border-cyber/10 rounded-lg">
+            <div className="flex items-start gap-2 text-xs text-ghost-dim">
+              <Shield className="w-4 h-4 text-cyber flex-shrink-0 mt-0.5" />
+              <p>
+                Your data is encrypted and secure. We'll never sell your information.
+                Read our{' '}
+                <Link href="/legal/terms" className="text-cyber hover:text-cyber-light underline">
+                  Terms
+                </Link>{' '}
+                and{' '}
+                <Link href="/legal/privacy" className="text-cyber hover:text-cyber-light underline">
+                  Privacy Policy
+                </Link>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Back to Home */}
