@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       }, { status: 200 });
     }
 
-    // New user - create subscriber record (simplified schema)
+    // New user - create subscriber record
     const { data: newUser, error: insertError } = await supabase
       .from('email_subscribers')
       .insert({
@@ -72,7 +72,6 @@ export async function POST(request: NextRequest) {
         name,
         source: 'login-page',
         status: 'active',
-        created_at: new Date().toISOString(),
       })
       .select()
       .single();
