@@ -130,14 +130,12 @@ export async function POST(request: NextRequest) {
     if (body.email?.trim()) {
       await supabase
         .from('email_subscribers')
-        .insert({
+        .upsert({
           email: body.email.trim(),
           source: 'perfect-world',
           tags: ['perfect-world-vision'],
           status: 'active',
-        })
-        .onConflict('email')
-        .merge(); // Update if already exists
+        }, { onConflict: 'email' });
     }
 
     // Return successful response
