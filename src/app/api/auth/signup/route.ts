@@ -97,11 +97,19 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Signup API Error:', error);
 
-    // Generic error response
+    // Check for specific errors
+    if (error.message?.includes('Supabase environment')) {
+      return NextResponse.json(
+        { error: 'Server configuration error. Please contact support.' },
+        { status: 500 }
+      );
+    }
+
+    // Return detailed error for debugging
     return NextResponse.json(
       {
         error: 'Failed to process signup. Please try again.',
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        details: error.message || 'Unknown error'
       },
       { status: 500 }
     );
