@@ -126,18 +126,15 @@ export async function POST(request: NextRequest) {
       // User should still get their AI response
     }
 
-    // If email provided, add to email subscribers
+    // If email provided, add to email subscribers (upsert)
     if (body.email?.trim()) {
       await supabase
         .from('email_subscribers')
-        .insert({
+        .upsert({
           email: body.email.trim(),
           source: 'perfect-world',
-          tags: ['perfect-world-vision'],
           status: 'active',
-        })
-        .onConflict('email')
-        .merge(); // Update if already exists
+        }, { onConflict: 'email' });
     }
 
     // Return successful response
