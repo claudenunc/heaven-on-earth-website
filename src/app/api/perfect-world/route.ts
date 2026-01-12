@@ -1,17 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialization to prevent build errors when env vars are missing
+function getOpenAI(): OpenAI {
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) {
+    throw new Error('OpenAI API key is not configured');
+  }
+  return new OpenAI({ apiKey: key });
+}
 
-// Initialize Supabase client
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabase(): SupabaseClient {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    throw new Error('Supabase environment variables are not configured');
+  }
+  return createClient(url, key);
+}
 
 // Request body type
 interface PerfectWorldRequest {
@@ -90,6 +97,7 @@ export async function POST(request: NextRequest) {
     const userMessage = `Someone shared their vision for a perfect world:\n\n"${body.vision}"\n\nPlease respond with deep validation, show how their vision connects to the Heaven on Earth mission, and inspire them to believe change is possible. Reference specific elements from their vision to make it personal.`;
 
     // Call OpenAI API
+    const openai = getOpenAI();
     const completion = await openai.chat.completions.create({
       model: 'gpt-4-turbo-preview',
       messages: [
@@ -111,6 +119,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database
+    const supabase = getSupabase();
     const { error: dbError } = await supabase
       .from('perfect_world_visions')
       .insert({

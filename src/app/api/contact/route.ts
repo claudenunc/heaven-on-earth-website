@@ -1,13 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Lazy initialization to prevent build errors when env vars are missing
+function getSupabase(): SupabaseClient {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    throw new Error('Supabase environment variables are not configured');
+  }
+  return createClient(url, key);
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY!)
+function getResend(): Resend {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) {
+    throw new Error('Resend API key is not configured');
+  }
+  return new Resend(key);
+}
 
 interface ContactFormData {
   name: string
@@ -30,6 +41,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Save to database
+    const supabase = getSupabase();
     const { data: contactData, error: dbError } = await supabase
       .from('contact_messages')
       .insert([
@@ -64,6 +76,7 @@ export async function POST(request: NextRequest) {
       other: 'Other Inquiry'
     }
 
+    const resend = getResend();
     try {
       await resend.emails.send({
         from: 'Heaven on Earth <noreply@heavenonearthmovement.com>',

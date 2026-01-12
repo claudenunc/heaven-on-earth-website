@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialization to prevent build errors when env vars are missing
+function getOpenAI(): OpenAI {
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) {
+    throw new Error('OpenAI API key is not configured');
+  }
+  return new OpenAI({ apiKey: key });
+}
 
 // Request body type
 interface DreamCatcherRequest {
@@ -179,6 +183,7 @@ export async function POST(request: NextRequest) {
 [End with something that makes them feel empowered and part of history being made]`;
 
     // Call OpenAI API
+    const openai = getOpenAI();
     const completion = await openai.chat.completions.create({
       model: 'gpt-4-turbo-preview',
       messages: [

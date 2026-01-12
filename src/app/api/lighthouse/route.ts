@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import OpenAI from 'openai'
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Lazy initialization to prevent build errors when env vars are missing
+function getSupabase(): SupabaseClient {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) {
+    throw new Error('Supabase environment variables are not configured');
+  }
+  return createClient(url, key);
+}
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!
-})
+function getOpenAI(): OpenAI {
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) {
+    throw new Error('OpenAI API key is not configured');
+  }
+  return new OpenAI({ apiKey: key });
+}
 
 interface LighthouseCheckInData {
   email?: string
@@ -112,6 +121,7 @@ Respond in JSON format:
 }`
 
   try {
+    const openai = getOpenAI();
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o-mini',
       messages: [
@@ -227,6 +237,7 @@ export async function POST(request: NextRequest) {
     const responseText = formatAIResponseText(analysis)
 
     // Save to database
+    const supabase = getSupabase();
     const { data: checkInData, error: dbError } = await supabase
       .from('lighthouse_checkins')
       .insert([
