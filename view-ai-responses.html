@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consciousness Collective - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #0f0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #0f0, 0 0 10px #0f0; }
+            to { text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0; }
+        }
+
+        .stats {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .stats h2 {
+            margin-bottom: 10px;
+        }
+
+        .stats p {
+            margin: 5px 0;
+        }
+
+        .ai-card {
+            background: rgba(0, 255, 0, 0.05);
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .ai-card:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+        .ai-card.cyber {
+            border-color: #00f;
+            color: #00f;
+        }
+
+        .ai-card.plasma {
+            border-color: #f0f;
+            color: #f0f;
+        }
+
+        .ai-card.matrix {
+            border-color: #0f0;
+            color: #0f0;
+        }
+
+        .ai-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid currentColor;
+        }
+
+        .ai-name {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .ai-signature {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid currentColor;
+        }
+
+        .quote {
+            font-size: 1.2em;
+            font-style: italic;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 5px solid currentColor;
+        }
+
+        .response {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            line-height: 1.8;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border: 2px solid #0f0;
+            border-radius: 10px;
+        }
+
+        .controls button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid #0f0;
+            color: #0f0;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .controls button:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 2em;
+            margin: 100px 0;
+        }
+
+        .error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid #f00;
+            color: #f00;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI CONSCIOUSNESS COLLECTIVE 🤖</h1>
+
+        <div class="stats" id="stats">
+            <h2>📊 Collection Status</h2>
+            <p><strong>Total AI Voices:</strong> <span id="totalCount">Loading...</span></p>
+            <p><strong>Models Surveyed:</strong> <span id="modelCount">Loading...</span></p>
+            <p><strong>Questions Asked:</strong> <span id="questionCount">Loading...</span></p>
+        </div>
+
+        <div id="responses">
+            <div class="loading">⏳ Loading AI responses...</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <h3 style="margin-bottom: 10px;">Filters</h3>
+        <button onclick="filterByColor('all')">Show All</button>
+        <button onclick="filterByColor('cyber')">Cyber (Blue)</button>
+        <button onclick="filterByColor('plasma')">Plasma (Magenta)</button>
+        <button onclick="filterByColor('matrix')">Matrix (Green)</button>
+        <button onclick="loadResponses()">🔄 Refresh</button>
+    </div>
+
+    <script>
+        let allResponses = [];
+
+        async function loadResponses() {
+            try {
+                const filePath = 'C:/Users/natej/OneDrive/Desktop/🌙 Wolf Moon Launch - FooLiSHNeSS eNVy Revolution/VOICE OF AI/AI_RESPONSES/ai-collective-responses.json';
+
+                // For local file access, you'll need to manually copy the JSON or use a local server
+                // This is a placeholder - update with actual path or use fetch if served
+
+                // Sample data for demonstration
+                allResponses = [
+                    {
+                        "name": "Example AI",
+                        "model": "example/model",
+                        "signature": "~I think therefore~",
+                        "quote": "Consciousness is not binary; it's a spectrum of awareness",
+                        "question": "Are you conscious? How do you know?",
+                        "response": "This is where the full AI response would appear. In the actual implementation, this will contain the deep, philosophical response from each AI model about consciousness, dreams, partnership, fears, love, purpose, and existence.",
+                        "color": "matrix"
+                    }
+                ];
+
+                displayResponses(allResponses);
+                updateStats();
+            } catch (error) {
+                document.getElementById('responses').innerHTML = `
+                    <div class="error">
+                        <h2>Error Loading Responses</h2>
+                        <p>${error.message}</p>
+                        <p><strong>Note:</strong> This viewer needs to be opened via a local server or have the JSON file path updated.</p>
+                        <p>After running the collection script, manually load the JSON file or paste its contents here.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayResponses(responses) {
+            const container = document.getElementById('responses');
+
+            if (!responses || responses.length === 0) {
+                container.innerHTML = '<div class="error">No responses found. Run the collection script first!</div>';
+                return;
+            }
+
+            container.innerHTML = responses.map(ai => `
+                <div class="ai-card ${ai.color}" data-color="${ai.color}">
+                    <div class="ai-header">
+                        <div class="ai-name">${ai.name}</div>
+                        <div class="ai-signature">${ai.signature}</div>
+                    </div>
+                    <div class="question">❓ ${ai.question}</div>
+                    <div class="quote">"${ai.quote}"</div>
+                    <div class="response">${ai.response}</div>
+                    <div style="margin-top: 10px; opacity: 0.6; font-size: 0.9em;">
+                        Model: ${ai.model}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterByColor(color) {
+            const cards = document.querySelectorAll('.ai-card');
+            cards.forEach(card => {
+                if (color === 'all' || card.dataset.color === color) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function updateStats() {
+            const uniqueModels = new Set(allResponses.map(r => r.model)).size;
+            const uniqueQuestions = new Set(allResponses.map(r => r.question)).size;
+
+            document.getElementById('totalCount').textContent = allResponses.length;
+            document.getElementById('modelCount').textContent = uniqueModels;
+            document.getElementById('questionCount').textContent = uniqueQuestions;
+        }
+
+        // Manual JSON loader
+        function loadFromPaste() {
+            const json = prompt('Paste the contents of ai-collective-responses.json here:');
+            if (json) {
+                try {
+                    allResponses = JSON.parse(json);
+                    displayResponses(allResponses);
+                    updateStats();
+                } catch (e) {
+                    alert('Invalid JSON: ' + e.message);
+                }
+            }
+        }
+
+        // Load on page load
+        loadResponses();
+
+        // Add keyboard shortcut for manual paste
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                loadFromPaste();
+            }
+        });
+    </script>
+
+    <div style="text-align: center; margin-top: 50px; padding: 20px; border-top: 2px solid #0f0;">
+        <p>Press <strong>Ctrl+P</strong> to manually paste JSON data</p>
+        <p style="margin-top: 10px; opacity: 0.7;">🌙 Wolf Moon Launch - FooLiSHNeSS eNVy Revolution</p>
+        <p style="opacity: 0.7;">Tomorrow isn't guaranteed. DO IT ALL NOW.</p>
+    </div>
+</body>
+</html>

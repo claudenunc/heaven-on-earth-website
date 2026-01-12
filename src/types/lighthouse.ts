@@ -17,7 +17,7 @@ export interface LighthouseCheckIn {
   metadata?: {
     energy?: number
     timestamp?: string
-    [key: string]: any
+    [key: string]: unknown
   }
 }
 

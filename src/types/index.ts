@@ -9,7 +9,7 @@ export interface User {
 export interface PerfectWorldResponse {
   id: string;
   user_id?: string;
-  responses: Record<string, any>;
+  responses: Record<string, unknown>;
   created_at: string;
 }
 
@@ -18,7 +18,7 @@ export interface DreamCatcherDream {
   user_id?: string;
   childhood_dream: string;
   current_situation?: string;
-  ai_response?: Record<string, any>;
+  ai_response?: Record<string, unknown>;
   commitment?: string;
   commitment_date?: string;
   created_at: string;
@@ -29,7 +29,7 @@ export interface LighthouseCheckin {
   user_id?: string;
   mood_score: number;
   thoughts?: string;
-  patterns?: Record<string, any>;
+  patterns?: Record<string, unknown>;
   created_at: string;
 }
 
@@ -64,7 +64,7 @@ export interface AnalyticsEvent {
   id: string;
   event_type: string;
   user_id?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   created_at: string;
 }
 
@@ -98,7 +98,7 @@ export interface PerfectWorldFormData {
 }
 
 // API Response Types
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
