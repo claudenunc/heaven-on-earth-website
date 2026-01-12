@@ -16,11 +16,12 @@
     "types": [
       "node",
       "react",
-      "react-dom"
+      "react-dom",
+      "next"
     ],
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
