@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
 
     const email = body.email.trim().toLowerCase();
     const name = body.name?.trim() || null;
+    const source = (body as any).source?.trim() || 'login-page';
 
     const supabase = getSupabase();
 
@@ -70,7 +71,7 @@ export async function POST(request: NextRequest) {
       .insert({
         email,
         name,
-        source: 'login-page',
+        source: source,
         status: 'active',
       })
       .select()

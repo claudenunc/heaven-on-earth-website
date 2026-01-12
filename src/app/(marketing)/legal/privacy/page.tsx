@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Restrict Processing:</strong> Limit how we use your data in certain situations</li>
             </ul>
             <p className="mt-4">
-              To exercise these rights, email <a href="mailto:privacy@heavenonearthmovement.com" className="text-gold hover:text-gold/80">privacy@heavenonearthmovement.com</a>
+              To exercise these rights, email <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>
             </p>
           </section>
 
@@ -175,8 +175,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="font-serif text-2xl font-bold text-navy mt-8 mb-4">12. Contact Us</h2>
             <p>Questions or concerns about privacy?</p>
             <p className="mt-4">
-              <strong>Email:</strong> <a href="mailto:privacy@heavenonearthmovement.com" className="text-gold hover:text-gold/80">privacy@heavenonearthmovement.com</a><br/>
-              <strong>General Contact:</strong> <a href="mailto:hello@heavenonearthmovement.com" className="text-gold hover:text-gold/80">hello@heavenonearthmovement.com</a>
+              <strong>Email:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link><br />
+              <strong>General Contact:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>
             </p>
           </section>
 

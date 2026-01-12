@@ -180,7 +180,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <a
-                  href="mailto:hello@heavenonearthmovement.com"
+                  href="/signup"
                   className="text-lg text-gold hover:text-gold/80 font-medium"
                 >
                   hello@heavenonearthmovement.com

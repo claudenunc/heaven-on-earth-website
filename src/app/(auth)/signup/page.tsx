@@ -18,6 +18,10 @@ export default function SignupPage() {
     setIsSubmitting(true);
     setError(null);
 
+    const searchParams = new URLSearchParams(window.location.search);
+    const redirectPath = searchParams.get('redirect') || '/lighthouse';
+    const source = searchParams.get('source') || 'signup-page';
+
     try {
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -27,6 +31,7 @@ export default function SignupPage() {
         body: JSON.stringify({
           email: email.trim(),
           name: name.trim() || undefined,
+          source: source
         }),
       });
 
@@ -36,8 +41,12 @@ export default function SignupPage() {
         throw new Error(data.error || 'Failed to create account');
       }
 
-      // Success - redirect to welcome experience
-      router.push('/lighthouse?welcome=true');
+      // Success - redirect to welcome experience or specific path
+      if (redirectPath.startsWith('/')) {
+        router.push(`${redirectPath}${redirectPath.includes('?') ? '&' : '?'}welcome=true`);
+      } else {
+        router.push('/lighthouse?welcome=true');
+      }
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
     } finally {

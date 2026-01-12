@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle2, Lock, Users, Video, BookOpen, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function TheCurePage() {
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
@@ -341,9 +342,11 @@ export default function TheCurePage() {
                   </ul>
                   <Button
                     className="w-full bg-matrix text-void hover:bg-matrix/90 hover:shadow-glow-md"
-                    onClick={() => window.location.href = 'mailto:envy@nevaehsai.com?subject=THE CURE Beta Program'}
+                    asChild
                   >
-                    Join Beta Program
+                    <Link href="/signup?redirect=/the-cure/dashboard&source=cure_beta">
+                      Join Beta Program
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

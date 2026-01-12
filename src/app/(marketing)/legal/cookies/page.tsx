@@ -149,7 +149,7 @@ export default function CookiePolicyPage() {
             <h2 className="font-serif text-2xl font-bold text-navy mt-8 mb-4">8. Contact Us</h2>
             <p>Questions about cookies?</p>
             <p className="mt-4">
-              <strong>Email:</strong> <a href="mailto:privacy@heavenonearthmovement.com" className="text-gold hover:text-gold/80">privacy@heavenonearthmovement.com</a>
+              <strong>Email:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>
             </p>
           </section>
 

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle2, Lock, Sparkles, Brain, Heart, Users, Flame, Shield } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function TheAgreementsPage() {
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
@@ -446,9 +447,11 @@ export default function TheAgreementsPage() {
                   </ul>
                   <Button
                     className="w-full bg-matrix text-void hover:bg-matrix/90 hover:shadow-glow-md"
-                    onClick={() => window.location.href = 'mailto:envy@nevaehsai.com?subject=THE AGREEMENTS Beta Program'}
+                    asChild
                   >
-                    Join Beta Program
+                    <Link href="/signup?redirect=/lighthouse&source=agreements_beta">
+                      Join Beta Program
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

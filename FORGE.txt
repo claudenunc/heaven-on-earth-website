@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # SERVICE 1: OLLAMA (The Brain)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_storage:/root/.ollama
+    # CRITICAL: Bind to all interfaces so n8n can see it
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      # CORS: Allow browser access for Tiledesk web widgets
+      - OLLAMA_ORIGINS=*
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # SERVICE 2: N8N (The Nervous System)
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - GENERIC_TIMEZONE=America/Chicago
+      - TZ=America/Chicago
+      - N8N_HOST=n8n.local
+      # DB Configuration (using Postgres for reliability)
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=n8n
+      - DB_POSTGRESDB_PASSWORD=secure_password_change_me
+    volumes:
+      - n8n_storage:/home/node/.n8n
+    depends_on:
+      - postgres
+      - ollama
+    # Networking Magic: Allow n8n to resolve host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # SERVICE 3: POSTGRES (The Memory for n8n)
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=secure_password_change_me
+      - POSTGRES_DB=n8n
+    volumes:
+      - postgres_storage:/var/lib/postgresql/data
+
+  # SERVICE 4: QDRANT (The Vector Database for RAG)
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    restart: always
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+volumes:
+  ollama_storage:
+  n8n_storage:
+  postgres_storage:
+  qdrant_storage:

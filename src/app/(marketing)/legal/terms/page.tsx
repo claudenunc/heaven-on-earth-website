@@ -200,7 +200,7 @@ export default function TermsPage() {
 
             <h3 className="text-xl font-semibold text-navy mt-6 mb-3">12.1 Good Faith Resolution</h3>
             <p>
-              Before formal proceedings, let's talk. Contact us at <a href="mailto:hello@heavenonearthmovement.com" className="text-gold hover:text-gold/80">hello@heavenonearthmovement.com</a>. Most issues can be resolved through honest conversation.
+              Before formal proceedings, let's talk. Contact us at <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>. Most issues can be resolved through honest conversation.
             </p>
 
             <h3 className="text-xl font-semibold text-navy mt-6 mb-3">12.2 Arbitration</h3>
@@ -227,7 +227,7 @@ export default function TermsPage() {
               Questions about these Terms?
             </p>
             <p className="mt-4">
-              <strong>Email:</strong> <a href="mailto:hello@heavenonearthmovement.com" className="text-gold hover:text-gold/80">hello@heavenonearthmovement.com</a>
+              <strong>Email:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>
             </p>
           </section>
 

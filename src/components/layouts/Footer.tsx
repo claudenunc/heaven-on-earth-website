@@ -94,7 +94,7 @@ export function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm leading-6 text-ghost-muted hover:text-ghost transition-colors duration-200"
+                        className="text-sm leading-6 text-ghost-muted hover:text-cyber transition-all duration-300 hover:pl-1 block"
                       >
                         {item.name}
                       </Link>
@@ -109,7 +109,7 @@ export function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm leading-6 text-ghost-muted hover:text-ghost transition-colors duration-200"
+                        className="text-sm leading-6 text-ghost-muted hover:text-cyber transition-all duration-300 hover:pl-1 block"
                       >
                         {item.name}
                       </Link>
@@ -126,7 +126,7 @@ export function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm leading-6 text-ghost-muted hover:text-ghost transition-colors duration-200"
+                        className="text-sm leading-6 text-ghost-muted hover:text-cyber transition-all duration-300 hover:pl-1 block"
                       >
                         {item.name}
                       </Link>

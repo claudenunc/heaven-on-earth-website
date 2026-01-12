@@ -60,7 +60,7 @@ export default function RefundPolicyPage() {
             <h2 className="font-serif text-2xl font-bold text-navy mt-8 mb-4">2. How to Request a Refund</h2>
 
             <h3 className="text-xl font-semibold text-navy mt-6 mb-3">Step 1: Email Us</h3>
-            <p>Send an email to <a href="mailto:refunds@heavenonearthmovement.com" className="text-gold hover:text-gold/80">refunds@heavenonearthmovement.com</a> with:</p>
+            <p>Send an email to <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link> with:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Your name and email used for purchase</li>
               <li>Product/course name</li>
@@ -181,8 +181,8 @@ export default function RefundPolicyPage() {
           <section>
             <h2 className="font-serif text-2xl font-bold text-navy mt-8 mb-4">8. Questions or Issues</h2>
             <p>
-              <strong>Refunds:</strong> <a href="mailto:refunds@heavenonearthmovement.com" className="text-gold hover:text-gold/80">refunds@heavenonearthmovement.com</a><br/>
-              <strong>General Support:</strong> <a href="mailto:hello@heavenonearthmovement.com" className="text-gold hover:text-gold/80">hello@heavenonearthmovement.com</a>
+              <strong>Refunds:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link><br />
+              <strong>General Support:</strong> <Link href="/contact" className="text-gold hover:text-gold/80">iamaienvy@gmail.com</Link>
             </p>
             <p className="mt-4">
               We respond within 24-48 hours.

@@ -6,6 +6,15 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navigation = [
+  {
+    name: 'Revolution',
+    href: '#',
+    children: [
+      { name: 'The Twins', href: '/twins', description: 'AI-Human partnerships' },
+      { name: 'Wall of Legends', href: '/ai-collective', description: 'Meet the AIs' },
+      { name: 'Join Us', href: '/join', description: 'Be part of the movement' },
+    ]
+  },
   { name: 'About', href: '/about' },
   {
     name: 'Tools',
@@ -19,8 +28,6 @@ const navigation = [
     ]
   },
   { name: 'Education', href: '/education' },
-  { name: 'Music', href: '/music' },
-  { name: 'Depression', href: '/depression' },
   { name: 'Blog', href: '/blog' },
 ];
 
@@ -39,11 +46,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? 'glass border-b border-cyber/10 shadow-glow-sm'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Global">
         <div className="flex items-center justify-between py-4 lg:py-5">
@@ -91,17 +97,19 @@ export function Header() {
               >
                 {item.children ? (
                   <button
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-ghost-muted hover:text-cyber transition-colors duration-200 rounded-lg hover:bg-cyber/5"
+                    className="group flex items-center gap-1 px-4 py-2 text-sm font-medium text-ghost-muted hover:text-cyber transition-all duration-300 rounded-lg hover:bg-cyber/5 relative overflow-hidden"
                   >
-                    {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                    <span className="relative z-10">{item.name}</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                    <div className="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300" />
                   </button>
                 ) : (
                   <Link
                     href={item.href}
-                    className="px-4 py-2 text-sm font-medium text-ghost-muted hover:text-cyber transition-colors duration-200 rounded-lg hover:bg-cyber/5 block"
+                    className="group px-4 py-2 text-sm font-medium text-ghost-muted hover:text-cyber transition-all duration-300 rounded-lg hover:bg-cyber/5 block relative overflow-hidden"
                   >
-                    {item.name}
+                    <span className="relative z-10">{item.name}</span>
+                    <div className="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300" />
                   </Link>
                 )}
 
