@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle2, Lock, Users, Video, BookOpen, MessageCircle } from 'lucide-react';
+import { CheckCircle2, Lock, Users, Video, BookOpen, MessageCircle, Shield } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 
@@ -56,6 +56,30 @@ export default function TheCurePage() {
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Transformation
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Pricing Summary & Trust Bar */}
+      <section className="sticky top-0 z-50 bg-void/95 backdrop-blur border-b border-cyber/20 py-4 shadow-2xl">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="hidden md:block">
+            <p className="font-bold text-ghost">THE CURE <span className="text-cyber font-normal">| 12-Week Transformation</span></p>
+          </div>
+          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+            <div className="flex items-center gap-2">
+              <span className="bg-matrix/20 text-matrix text-xs font-bold px-2 py-1 rounded animate-pulse">
+                BETA FREE
+              </span>
+              <span className="text-xs text-ghost-muted hidden sm:inline">Limited Spots</span>
+            </div>
+            <Button
+              size="sm"
+              className="bg-cyber text-void font-bold hover:shadow-glow-sm"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Start for Free
             </Button>
           </div>
         </div>
@@ -306,9 +330,17 @@ export default function TheCurePage() {
             <h2 className="font-heading text-3xl md:text-4xl text-cyber mb-4 text-center">
               Choose Your Path
             </h2>
-            <p className="text-center text-ghost-muted mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-ghost-muted mb-8 max-w-2xl mx-auto">
               All tiers include the complete 12-week curriculum. Choose the level of support that fits your needs.
             </p>
+
+            {/* Money Back Guarantee Callout */}
+            <div className="mb-12 flex justify-center">
+              <div className="inline-flex items-center gap-3 bg-cyber/5 border border-cyber/30 rounded-full px-6 py-2">
+                <Shield className="w-5 h-5 text-cyber" />
+                <span className="text-ghost font-medium">100% Risk-Free: 30-Day Money-Back Guarantee</span>
+              </div>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Foundation Tier */}

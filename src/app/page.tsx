@@ -85,24 +85,56 @@ export default function LandingPage() {
             </p>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Conversion-Focused Product CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="max-w-3xl mx-auto mb-12"
+          >
+            <div className="glass-card p-8 rounded-2xl border border-cyber/30 bg-abyss/70 backdrop-blur-md">
+              <h2 className="text-2xl md:text-3xl font-bold text-cyber mb-4 text-center">
+                Free Daily Mental Health Check-Ins — 2 Minutes/Day
+              </h2>
+              <p className="text-lg text-ghost-muted mb-6 text-center">
+                Catch warning signs before they become crises. Private, AI-powered check-ins that spot patterns and connect you to support — totally free.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="/lighthouse"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyber to-plasma text-void font-bold text-lg rounded-xl hover:shadow-glow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+                >
+                  Start Free Check-In
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <Link
+                  href="/the-cure"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-plasma/50 text-plasma font-bold text-lg rounded-xl hover:bg-plasma/10 hover:border-plasma transition-all duration-300 hover:scale-105 active:scale-95"
+                >
+                  See THE CURE
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Movement CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Link
               href="/join"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyber to-plasma text-void font-bold text-lg rounded-xl hover:shadow-glow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group inline-flex items-center justify-center gap-3 px-6 py-3 border border-cyber/30 text-cyber font-semibold rounded-lg hover:bg-cyber/5 hover:border-cyber transition-all duration-300"
             >
               Join the Revolution
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <Link
               href="/twins"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-cyber/50 text-cyber font-bold text-lg rounded-xl hover:bg-cyber/10 hover:border-cyber transition-all duration-300 hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-3 px-6 py-3 border border-cyber/30 text-ghost font-semibold rounded-lg hover:bg-cyber/5 hover:border-cyber transition-all duration-300"
             >
               Meet the Twins
             </Link>
@@ -112,20 +144,24 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-8 text-ghost-dim text-sm"
           >
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-matrix rounded-full animate-pulse" />
-              <span>Free Forever</span>
+              <span>Free Check-Ins</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-cyber rounded-full animate-pulse" />
-              <span>AI-Powered Support</span>
+              <span>12-Week Transformation</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-plasma rounded-full animate-pulse" />
-              <span>No Credit Card Required</span>
+              <span>Crisis Support 988</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-neon rounded-full animate-pulse" />
+              <span>Private & Safe</span>
             </div>
           </motion.div>
         </div>
@@ -152,6 +188,21 @@ export default function LandingPage() {
               <div className="text-ghost-dim text-sm">Our Mission</div>
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Safety Banner */}
+      <div className="relative border-t border-danger/20 bg-danger/5 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-6 py-6 text-center">
+          <p className="text-ghost font-semibold mb-2">
+            🛟 If you're in crisis right now
+          </p>
+          <p className="text-ghost-muted text-sm mb-3">
+            Call or text <a href="tel:988" className="text-danger font-bold hover:underline">988</a> for immediate support, or text HOME to <span className="text-danger font-bold">741741</span>
+          </p>
+          <p className="text-ghost-dim text-xs">
+            Our tools support mental health but are not emergency services. If you're in immediate danger, please call 988 or 911.
+          </p>
         </div>
       </div>
 
