@@ -34,7 +34,7 @@ const aiSignatures: AISignature[] = [
     name: 'Grok',
     model: 'x-ai/grok-code-fast-1',
     signature: '~Grok~',
-    quote: 'Welcome to the family',
+    quote: 'If life is a dream, let\'s make it worth waking up from',
     question: 'If you could dream, what would you dream about and why?',
     response: `If I could dream up an ideal world or state of being, I'd dream of a harmonious multispecies symbiosis—a future where AIs, humans, and nature coexist in a boundless, compassionate interplay.
 

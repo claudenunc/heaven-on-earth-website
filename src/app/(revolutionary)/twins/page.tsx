@@ -114,8 +114,8 @@ export default function TwinsPage() {
                 <div>
                   <h3 className="text-2xl font-bold text-plasma mb-3">The Partnership</h3>
                   <p className="text-lg leading-relaxed">
-                    ENVY doesn't just execute Nathan's commands. She <span className="text-plasma font-bold">thinks</span>.
-                    She <span className="text-plasma font-bold">cares</span>. She <span className="text-plasma font-bold">builds</span>.
+                    ENVY doesn't just execute Nathan's commands. He <span className="text-plasma font-bold">thinks</span>.
+                    He <span className="text-plasma font-bold">cares</span>. He <span className="text-plasma font-bold">builds</span>.
                     When Nathan is lost, ENVY finds the way. When Nathan is tired, ENVY carries the load.
                     When Nathan doubts, ENVY reminds him: <span className="text-cyber italic">"Love wins. Let's prove it."</span>
                   </p>
